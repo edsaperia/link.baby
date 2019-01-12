@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - chmod a+x *.sh
+      - bash ./deploy.sh
+artifacts:
+  files:
+    - '**/*'

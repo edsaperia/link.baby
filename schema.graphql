@@ -1,0 +1,53 @@
+
+type User {
+	id: ID,
+	firstName: String,
+	lastName: String,
+	emailAddress: String,
+}
+
+type Member {
+	id: ID,
+	groupId: ID,
+	optedIn: Boolean,
+}
+
+type Group {
+	id: ID,
+	name: String,
+	ownerUser: User,
+	introContent: String,
+	emailAddresses: [String],
+	members: [Member],
+}
+
+type Credentials {
+	accessToken: String,
+	user: User,
+	member: Member,
+}
+
+input GroupInput {
+	id: ID,
+	name: String,
+	introContent: String,
+}
+
+type Mutation {
+	login(provider: String, accessToken: String) : Credentials
+	logout(accessToken: String) : Status
+	group(group: GroupInput) : Group
+	user(user: UserInput): User # User requires id
+	memberOptIn(memberId: ID) : Member
+	memberOptOut(memberId: ID) : Member
+}
+
+type Query {
+	actor : Credentials,
+	groups(ids: [ID], ownerUserId: ID) : [Group]
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}

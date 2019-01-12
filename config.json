@@ -1,0 +1,1 @@
+{"local":{"status":{"up":true,"message":""},"graphql":{"url":"http://localhost/graphql","token":"","region":"eu-west-1"}},"production":{"status":{"up":true,"message":""},"graphql":{"url":"https://d7be2kvm3fhsjgtbsmmypqwm24.appsync-api.eu-west-1.amazonaws.com/graphql","token":"da2-envymqqriba3jfpwyfiwcmg42a","region":"eu-west-1"}}}

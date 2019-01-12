@@ -1,0 +1,1 @@
+export const publicRoot = process.env.WEB_PUBLIC_ROOT

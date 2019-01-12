@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+   environment_vars:
+    environment:
+      # mysql
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=linkbaby
+      - MYSQL_PASSWORD=linkbaby
+      - MYSQL_DATABASE=linkbaby
+      - TWILIO_SID=
+      - TWILIO_TOKEN=
+      - MEDIA_S3_BUCKET=
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
+      - AWS_REGION=
+      - SLACK_WEBHOOK_URL=
+      - TELLER_KEY=
+      - TELLER_CERT=
+      - ANDROID_PA_ARN=
+      - IOS_PA_ARN=
+      - IOS_SBX_PA_ARN=
+      - FACEBOOK_APP_ID=
+      - FACEBOOK_APP_SECRET=
+      - FIREBASE_PROJECT_ID=
+      - FIREBASE_CLIENT_EMAIL=
+      - FIREBASE_PRIVATE_KEY=
+      - FIREBASE_DATABASE_URL=

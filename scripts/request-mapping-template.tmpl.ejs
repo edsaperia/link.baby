@@ -1,0 +1,10 @@
+{
+  "version": "2017-02-28",
+  "operation": "BatchInvoke",
+  "payload": {
+      "field": "<%= field %>",
+      "arguments": $utils.toJson($context.arguments),
+      "parent": $utils.toJson($context.source),
+      "headers": $utils.toJson($context.request.headers)
+  }
+}
