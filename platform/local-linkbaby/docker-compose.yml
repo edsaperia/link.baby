@@ -29,3 +29,19 @@ services:
     environment:
       - PORT=80
       - PUBLIC_GRAPHQL_URL=http://localhost:3780/graphql
+
+  web:
+    image: "mhart/alpine-node"
+    working_dir: /src
+    command: "npm run start:dev"
+    extends:
+     file: environment.yml
+     service: environment_vars
+    volumes:
+      - ../../website:/src
+    ports:
+      - "3788:3788"
+    environment:
+      - PORT=3788
+      - PUBLIC_GRAPHQL_URL=http://localhost:3780/graphql
+

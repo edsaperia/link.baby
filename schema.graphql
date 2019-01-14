@@ -3,6 +3,15 @@ type User {
 	id: ID,
 	firstName: String,
 	lastName: String,
+	imageUrl: String,
+	emailAddress: String,
+}
+
+input UserInput {
+	id: ID,
+	firstName: String,
+	lastName: String,
+	imageUrl: String,
 	emailAddress: String,
 }
 
@@ -27,6 +36,10 @@ type Credentials {
 	member: Member,
 }
 
+type Status {
+	success: Boolean
+}
+
 input GroupInput {
 	id: ID,
 	name: String,
@@ -34,7 +47,7 @@ input GroupInput {
 }
 
 type Mutation {
-	login(provider: String, accessToken: String) : Credentials
+	login(emailAddress: String) : Status
 	logout(accessToken: String) : Status
 	group(group: GroupInput) : Group
 	user(user: UserInput): User # User requires id
@@ -45,6 +58,7 @@ type Mutation {
 type Query {
 	actor : Credentials,
 	groups(ids: [ID], ownerUserId: ID) : [Group]
+	users(ids: [ID]): [User]
 }
 
 schema {

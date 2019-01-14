@@ -2,9 +2,9 @@
 export SLS_DEBUG=*
 export STAGE=production
 
-export APP_KP_NAME=packs-prod
-export BASION_KP_NAME=packs-prod
-export AWS_ACC_ID=346955881824
+export APP_KP_NAME=linkbaby-prod
+export BASION_KP_NAME=linkbaby-prod
+export AWS_ACC_ID=262749660740
 export AWS_REGION=eu-west-1
 
 if [ -n "$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI" ]
@@ -20,7 +20,7 @@ then
     export AWS_SECRET_ACCESS_KEY
     export AWS_SESSION_TOKEN
 
-    aws s3 --region $AWS_REGION cp s3://packs-secrets/$STAGE.sh secrets.sh
+    aws s3 --region $AWS_REGION cp s3://linkbaby-secrets/$STAGE.sh secrets.sh
 fi
 
 chmod a+x secrets.sh
@@ -46,7 +46,7 @@ export FIREBASE_PRIVATE_KEY
 export FIREBASE_DATABASE_URL
 export ANDROID_IAP_KEY
 
-aws s3 --region $AWS_REGION cp s3://packs-config/config.json config.json
+aws s3 --region $AWS_REGION cp s3://linkbaby-config/config.json config.json
 
 cd platform
 
@@ -116,4 +116,5 @@ docker run \
     -e "ANDROID_IAP_KEY=$ANDROID_IAP_KEY" \
     mhart/alpine-node:10.11.0 npm run deploy-prod
 
-aws s3 --region $AWS_REGION cp config.json s3://packs-config/config.json
+aws s3 --region $AWS_REGION cp config.json s3://linkbaby-config/config.json
+cp config.json website/src/utils/config.json

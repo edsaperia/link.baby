@@ -7,9 +7,8 @@ exports.up = async knex => {
 		table.string('lastName')
 		table.string('emailAddress')
 		table.string('imageUrl')
-		table.string('facebookUserId', 128)
-		table.string('twitterUserId', 128)
-		table.string('googleUserId', 190)
+
+		table.text('description')
 
 		table.timestamp('createdAt').defaultTo(knex.raw('current_timestamp'))
 		table.timestamp('updatedAt').defaultTo(knex.raw('current_timestamp on update current_timestamp'))
@@ -18,10 +17,7 @@ exports.up = async knex => {
 		table.collate('utf8mb4_unicode_ci')
 	})
 
-	await knex.raw('alter table `user` add unique `user_facebookUserId_unique`(`facebookUserId` (128))')
-	await knex.raw('alter table `user` add unique `user_twitterUserId_unique`(`twitterUserId` (128))')
-	await knex.raw('alter table `user` add unique `user_email_unique`(`email` (190))')
-	await knex.raw('alter table `user` add unique `user_googleUserId_unique`(`googleUserId` (190))')
+	await knex.raw('alter table `user` add unique `user_emailAddress_unique`(`emailAddress` (190))')
 
 	await knex.schema.createTable('group', table => {
 		table.uuid('id').primary()
@@ -61,6 +57,8 @@ exports.up = async knex => {
 		table.collate('utf8mb4_unicode_ci')
 	})
 
+	await knex.raw('alter table `member` add unique `user_emailAddress_unique`(`emailAddress` (190))')
+
 	await knex.schema.createTable('email', table => {
 		table.uuid('id').primary()
 
@@ -75,11 +73,15 @@ exports.up = async knex => {
 
 		table.string('type') // initial or member
 
-		table.string('status') // bounced, complained, sent
+		table.string('status') // pending, bounced, complained, sent
+
+		table.string('sesMessageId') // SES message ID
 
 		table.timestamp('sentAt').nullable()
 		table.timestamp('bouncedAt').nullable()
 		table.timestamp('complainedAt').nullable()
+
+		table.text('meta') // json info relevent to status
 
 		table.timestamp('createdAt').defaultTo(knex.raw('current_timestamp'))
 		table.timestamp('updatedAt').defaultTo(knex.raw('current_timestamp on update current_timestamp'))

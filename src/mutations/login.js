@@ -19,9 +19,8 @@ const login = async (parent, {
 
 	// return credentials
 	try {
-		const { id } = await User.ensureExists({ emailAddress })
-		const { accessToken } = await Token.generate({ userId: id })
-		const link = `${publicRoot}/login?accessToken=${accessToken}`
+		const { accessToken } = await User.login({ emailAddress }, context)
+		const link = `${publicRoot}/login/callback?accessToken=${accessToken}`
 		await sendEmail({ recipient: emailAddress, data: { link }, type: 'login' })
 	} catch (e) {
 		console.error(e)

@@ -2,7 +2,7 @@ region = "eu-west-1"
 
 bastion_instance_type = "t2.micro"
 
-db_instance_type = "db.t2.small"
+db_instance_type = "db.t2.micro"
 db_instance_name = "linkbaby-db-prod"
 db_storage = "20"
 db_engine = "mysql"

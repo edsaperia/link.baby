@@ -7,7 +7,6 @@ import { PubSub } from 'graphql-subscriptions'
 import ApolloClient from 'apollo-boost'
 import fetch from 'node-fetch'
 import gql from 'graphql-tag'
-import { LoggingLink, wrapPubSub, formatResponse } from 'apollo-logger'
 
 import bodyParser from 'body-parser'
 import { importSchema } from 'graphql-import'
@@ -21,8 +20,6 @@ import queries from './src/queries'
 import mutations from './src/mutations'
 
 import Token from './src/models/Token'
-
-const logOptions = { logger: console.log }
 
 const resolvers = {
 	Query: queries,
@@ -59,6 +56,8 @@ const authMiddleware = (req, res, next) => {
 	}
 }
 
+app.use('*', cors({ origin: '*' }))
+
 app.use('/graphql',
 	bodyParser.json(),
 	authMiddleware,
@@ -87,7 +86,6 @@ app.use('/graphql',
 						console.error(`unhandled event ${type}`)
 					}
 				},
-				pubsub,
 			})
 		},
 	})))
@@ -95,8 +93,6 @@ app.use('/graphql',
 app.get('/graphiql', graphiqlExpress({
 	endpointURL: process.env.PUBLIC_GRAPHQL_URL,
 }))
-
-app.use('*', cors({ origin: process.env.PUBLIC_GRAPHQL_URL.split('/graphql').join('') }))
 
 app.get('/prod-graphiql', graphiqlExpress({
 	endpointURL: 'https://kadr3ldmcngm3futskts6xxehe.appsync-api.eu-west-1.amazonaws.com/graphql',

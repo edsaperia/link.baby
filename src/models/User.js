@@ -27,13 +27,13 @@ User.merge = async ({ existingUserId, newUserId }) => {
 	
 }
 
-User.login = async ({ firebaseUserId }, context) => {
+User.login = async ({ emailAddress }, context) => {
 	let userId
 
 	const currentUserId = context.auth && context.auth.user && context.auth.user.id
 
-	if (firebaseUserId) {
-		const user = await User.query().select('id').where('firebaseUserId', firebaseUserId).first()
+	if (emailAddress) {
+		const user = await User.query().select('id').where('emailAddress', emailAddress).first()
 		if (user) {
 			userId = user.id
 		}
@@ -44,8 +44,7 @@ User.login = async ({ firebaseUserId }, context) => {
 			.skipUndefined()
 			.insert({
 				id: uuid(),
-				firebaseUserId,
-				imageUrl,
+				emailAddress,
 			})
 
 		userId = user.id

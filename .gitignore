@@ -28,3 +28,6 @@ build/Release
 node_modules
 
 .DS_STORE
+.serverless
+mapping-templates/*
+.terraform

@@ -116,7 +116,7 @@ custom:
     handler: scripts/output.handler
   s3Sync:
     - bucketName: ${self:custom.siteName}
-      localDir: website
+      localDir: website/dist
 
 resources:
   Resources: 
