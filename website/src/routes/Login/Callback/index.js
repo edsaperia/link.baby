@@ -1,2 +1,2 @@
-import LoginCallback from './LoginCallback'
-export default LoginCallback
+import LoginCallbackContainer from './LoginCallbackContainer'
+export default LoginCallbackContainer
