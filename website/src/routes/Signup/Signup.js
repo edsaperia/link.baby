@@ -23,11 +23,15 @@ class Signup extends React.PureComponent {
 
 	renderLogin() {
 		return (
-			<div>
+			<form onSubmit={(e) => {
+				e.preventDefault()
+				this.login()
+				return false
+			}}>
 				<h1>Enter your email:</h1>
-				<input placeholder="email" ref={r => this.emailInput = r} />
+				<input placeholder="email" type="email" name="email" ref={r => this.emailInput = r} />
 				<button onClick={() => this.login()}>Login</button>
-			</div>
+			</form>
 		)
 	}
 
@@ -44,11 +48,15 @@ class Signup extends React.PureComponent {
 		}
 
 		return (
-			<div>
+			<form onSubmit={(e) => {
+				e.preventDefault()
+				this.login()
+				return false
+			}}>
 				<h1>To get started we just need your email:</h1>
-				<input placeholder="email" ref={r => this.emailInput = r} />
+				<input placeholder="email" type="email" name="email" ref={r => this.emailInput = r} />
 				<button onClick={() => this.login()}>Sign up</button>
-			</div>
+			</form>
 		)
 	}
 }

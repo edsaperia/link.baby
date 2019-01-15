@@ -76,7 +76,7 @@ User.logout = async ({ accessToken }) => {
 	return token
 }
 
-User.update = async ({ id, firstName, lastName, emailAddress, firebaseUserId, imageUrl }, context) => {
+User.update = async ({ id, firstName, lastName, emailAddress, firebaseUserId, imageUrl, description }, context) => {
 	const oldUser = await User.query().select('*').where('id', id).first()
 	if (emailAddress) {
 		emailAddress = emailAddress.toLowerCase()
@@ -95,6 +95,9 @@ User.update = async ({ id, firstName, lastName, emailAddress, firebaseUserId, im
 	}
 	if (emailAddress) {
 		newObj.emailAddress = emailAddress
+	}
+	if (description) {
+		newObj.description = description
 	}
 	if (firebaseUserId) {
 		newObj.firebaseUserId = firebaseUserId

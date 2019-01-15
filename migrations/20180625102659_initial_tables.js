@@ -28,6 +28,7 @@ exports.up = async knex => {
 		table.string('title')
 		table.text('description')
 		table.text('introEmailContent')
+		table.timestamp('introEmailSentAt').nullable()
 
 		table.timestamp('createdAt').defaultTo(knex.raw('current_timestamp'))
 		table.timestamp('updatedAt').defaultTo(knex.raw('current_timestamp on update current_timestamp'))
@@ -45,6 +46,7 @@ exports.up = async knex => {
 		table.string('firstName')
 		table.string('lastName')
 		table.string('emailAddress')
+		table.string('imageUrl')
 		table.text('description')
 
 		table.timestamp('optedInOn').nullable()
@@ -57,7 +59,7 @@ exports.up = async knex => {
 		table.collate('utf8mb4_unicode_ci')
 	})
 
-	await knex.raw('alter table `member` add unique `user_emailAddress_unique`(`emailAddress` (190))')
+	await knex.raw('alter table `member` add unique `member_emailAddress_groupId_unique`(`emailAddress` (190), `groupId`)')
 
 	await knex.schema.createTable('email', table => {
 		table.uuid('id').primary()

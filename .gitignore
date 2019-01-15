@@ -31,3 +31,4 @@ node_modules
 .serverless
 mapping-templates/*
 .terraform
+\.webpack/
