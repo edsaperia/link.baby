@@ -66,8 +66,7 @@ exports.up = async knex => {
 
 		table.uuid('groupId').index().references('id')
 			.inTable('group')
-		table.uuid('recipientEmailId').index().references('id')
-			.inTable('member')
+
 		table.uuid('recipientMemberId').index().references('id')
 			.inTable('member')
 		table.uuid('subjectMemberId').index().references('id')

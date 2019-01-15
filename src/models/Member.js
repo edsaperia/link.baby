@@ -1,5 +1,6 @@
 import uuid from 'uuid/v4'
 import Model from './Model'
+import Token from './Token'
 
 class Member extends Model {
 	static get tableName() {
@@ -31,6 +32,17 @@ Member.ensureExist = async ({ emailAddresses, groupId }) => {
 	if (toCreateMembers.length > 0) {
 		await Member.knex().insert(toCreateMembers).into('member')
 	}
+}
+
+Member.generateToken = async ({ id }) => {
+	const accessToken = uuid()
+	await Token.query().insert({
+		id: uuid(),
+		token: accessToken,
+		memberId: id,
+	})
+
+	return { accessToken }
 }
 
 export default Member

@@ -33,7 +33,7 @@ type Group {
 	title: String,
 	description: String,
 	ownerUser: User,
-	introContent: String,
+	introEmailContent: String,
 	members: [Member],
 }
 
@@ -51,7 +51,7 @@ input GroupInput {
 	id: ID,
 	title: String,
 	description: String,
-	introContent: String,
+	introEmailContent: String,
 	emailAddresses: [String],
 }
 
@@ -62,6 +62,7 @@ type Mutation {
 	user(user: UserInput): User # User requires id
 	memberOptIn(memberId: ID) : Member
 	memberOptOut(memberId: ID) : Member
+	sendGroupIntroEmail(groupId: ID) : Group
 }
 
 type Query {

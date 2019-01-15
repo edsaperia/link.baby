@@ -1,2 +1,2 @@
-import IntroEmail from './IntroEmail'
-export default IntroEmail
+import IntroEmailContainer from './IntroEmailContainer'
+export default IntroEmailContainer

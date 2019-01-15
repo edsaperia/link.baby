@@ -1,5 +1,6 @@
 import Model from './Model'
 import User from './User'
+import Member from './Member'
 
 class Token extends Model {
 	static get tableName() {
@@ -14,16 +15,34 @@ class Token extends Model {
 }
 
 Token.getUser = async ({ token }) => {
-	const user = await User.query()
-		.select('*')
-		.where('id',
-			Token.query()
-				.select('userId')
-				.where({ token })
-		)
-		.first()
+	if (token.startsWith('m-')) {
+		const member = await Member.query()
+			.select('*')
+			.where('id',
+				Token.query()
+					.select('memberId')
+					.where({ token })
+			)
+			.first()
 
-	return user
+		return {
+			member,
+		}
+	} else {
+		const user = await User.query()
+			.select('*')
+			.where('id',
+				Token.query()
+					.select('userId')
+					.where({ token })
+			)
+			.first()
+
+		return {
+			user,
+		}
+	}
+	
 }
 
 export default Token

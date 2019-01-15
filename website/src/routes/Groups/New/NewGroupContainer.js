@@ -7,7 +7,7 @@ const groupFields = `
 	id,
 	title,
 	description,
-	introContent,
+	introEmailContent,
 	ownerUser {
 		id
 		firstName

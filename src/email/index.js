@@ -1,11 +1,11 @@
 import AWS from 'aws-sdk'
 
 import login from './login'
-
-const sender = 'link.baby <hello@link.baby>'
+import groupIntro from './groupIntro'
 
 const templates = {
 	login,
+	'group-intro': groupIntro,
 }
 
 export const sendEmail = ({ recipient, data, type }) => {
@@ -19,6 +19,9 @@ export const sendEmail = ({ recipient, data, type }) => {
 	const subject = templates[type].subject({ data })
 	const text = templates[type].text({ data })
 	const html = templates[type].html({ data })
+	const sender = templates[type].sender({ data }) || 'link.baby <hello@link.baby>'
+
+	console.log(sender)
 
 	const params = {
 		Source: sender,

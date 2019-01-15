@@ -16,11 +16,12 @@ const handlers = Object.assign({}, queries, mutations)
 const authMiddleware = async authHeader => {
 	const token = authHeader && authHeader.split('Bearer ')[1]
 	if (token) {
-		const user = await Token.getUser({ token })
+		const { user, member } = await Token.getUser({ token })
 
 		return {
 			user,
 			token,
+			member,
 		}
 	}
 

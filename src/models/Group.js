@@ -22,33 +22,31 @@ Group.get = async ({ id }) => {
 		Member.getGroupMembers({ groupId: id }),
 	])
 
-	console.log(members)
-
 	const ownerUser = await User.get({ id: group.ownerUserId })
 
 	return Object.assign({}, group, { members }, { ownerUser: Object.assign({}, ownerUser, { emailAddress: undefined }) })
 }
 
 Group.update = async ({ group }) => {
-	let newGroup
+	let id
 
 	const sanitizedGroup = Object.assign({}, group, { emailAddresses: undefined })
 
 	if (group.id) {
-		newGroup = group
-		await Group.query().update(sanitizedGroup).where({ id: group.id })
+		id = group.id
+		await Group.query().update(sanitizedGroup).where({ id })
 	} else {
-		newGroup = Object.assign({}, sanitizedGroup, { id: uuid() })
-		await Group.query().insert(newGroup)
+		id = uuid()
+		await Group.query().insert(Object.assign({}, sanitizedGroup, { id }))
 	}
 
 	const { emailAddresses } = group
 
 	if (emailAddresses) {
-		await Member.ensureExist({ emailAddresses, groupId: newGroup.id })
+		await Member.ensureExist({ emailAddresses, groupId: id })
 	}
 
-	return Group.get({ id: newGroup.id })
+	return Group.get({ id })
 }
 
 export default Group

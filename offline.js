@@ -42,10 +42,11 @@ const schema = makeExecutableSchema({
 const authMiddleware = (req, res, next) => {
 	const token = req.headers.authorization && req.headers.authorization.split('Bearer ')[1]
 	if (token) {
-		Token.getUser({ token }).then(user => {
+		Token.getUser({ token }).then(({ member, user }) => {
 			req.auth = {
 				user,
 				token,
+				member,
 			}
 			next()
 		}).catch(e => {

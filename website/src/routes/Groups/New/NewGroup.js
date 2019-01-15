@@ -6,10 +6,6 @@ class NewGroup extends React.PureComponent {
 		super(props)
 		this.state = {
 			redirectToGroupId: null,
-
-			// title: 'new group',
-			// description: 'dajklsjdlas',
-			// emailAddresses: ['josh2@joshbalfour.co.uk', 'josh3@joshbalfour.co.uk'].join('\n'),
 		}
 	}
 
@@ -41,6 +37,10 @@ class NewGroup extends React.PureComponent {
 			title,
 			description,
 			emailAddresses: emailAddresses.split('\n'),
+		}
+
+		if (this.props.group) {
+			group.id = this.props.group.id
 		}
 
 		this.props.updateGroup({ group })
