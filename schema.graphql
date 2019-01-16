@@ -28,6 +28,16 @@ type Member {
 	emailAddress: String,
 }
 
+input MemberInput {
+	id: ID,
+	firstName: String,
+	lastName: String,
+	imageUrl: String,
+	description: String,
+	optedIn: Boolean,
+	emailAddress: String,
+}
+
 type Group {
 	id: ID,
 	title: String,
@@ -60,8 +70,7 @@ type Mutation {
 	logout(accessToken: String) : Status
 	group(group: GroupInput) : Group
 	user(user: UserInput): User # User requires id
-	memberOptIn(memberId: ID) : Member
-	memberOptOut(memberId: ID) : Member
+	member(member: MemberInput) : Member
 	sendGroupIntroEmail(groupId: ID) : Group
 }
 

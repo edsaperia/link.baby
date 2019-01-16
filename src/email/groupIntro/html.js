@@ -10,6 +10,6 @@ You can opt out at any time by clicking the opt-out link in the email.<br />
 <br /><br />
 <a href="${process.env.WEB_PUBLIC_ROOT}/login/callback?accessToken=$data.accessToken">Get Started</a><br />
 <br /><br />
-You are recieving this email because $data.senderName added you to the $data.groupName group on link.baby.<br />
-You will not recieve any more emails from the $data.groupName group on link.baby unless you opt-in via the link above.
+You are recieving this email because $data.senderName added you to the "$data.groupName" group on link.baby.<br />
+You will not recieve any more emails from the "$data.groupName" group on link.baby unless you opt-in via the link above.
 `

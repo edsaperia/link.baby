@@ -7,7 +7,7 @@ const LoginCallback = ({ actor }) => {
 			return <Redirect to="/groups" />
 		}
 		if (actor.member) {
-			return <Redirect to="/member" />
+			return <Redirect to={`/groups/${actor.member.groupId}/member`} />
 		}
 	}
 

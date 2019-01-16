@@ -21,6 +21,7 @@ const getActor = gql`
 				description
 				imageUrl
 				emailAddress
+				groupId
 			}
 		}
 	}
