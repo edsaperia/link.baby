@@ -6,6 +6,7 @@ import groupIntro from './groupIntro'
 const templates = {
 	login,
 	'group-intro': groupIntro,
+	'peer-intro': peerIntro,
 }
 
 export const sendEmail = ({ recipient, data, type }) => {

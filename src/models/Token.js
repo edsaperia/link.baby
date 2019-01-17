@@ -26,7 +26,7 @@ Token.getUser = async ({ token }) => {
 			.first()
 
 		return {
-			member,
+			member: Object.assign({}, member, { optedIn: !!member.optedInOn && !member.optedOutOn })
 		}
 	} else {
 		const user = await User.query()

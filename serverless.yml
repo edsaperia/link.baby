@@ -93,6 +93,10 @@ functions:
       - s3:
           bucket: userUploads
           event: s3:ObjectCreated:*
+  daily:
+    handler: daily
+    events:
+      - schedule: cron(0 14 * * *)
 
 custom:
   siteName: link.baby

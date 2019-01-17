@@ -7,6 +7,7 @@ class Member extends React.PureComponent {
 		this.state = {
 			error: null,
 			redirect: false,
+			optedIn: false,
 		}
 	}
 
@@ -60,7 +61,7 @@ class Member extends React.PureComponent {
 				<input
 					name="opted-in"
 					type="checkbox"
-					checked={!!optedIn}
+					checked={optedIn}
 					onChange={e => this.setState({ optedIn: !!e.target.checked }) } />
 				<button onClick={() => this.updateMember()}>Save</button>
 			</div>

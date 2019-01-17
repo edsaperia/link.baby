@@ -36,6 +36,7 @@ const getMyGroups = gql`
 				lastName
 				imageUrl
 				description
+				optedIn
 			}
 		}
 	}

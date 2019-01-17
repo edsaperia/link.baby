@@ -13,6 +13,20 @@ class Email extends Model {
 	}
 }
 
+Email.queueBatch = async (emails, { emit }) => {
+	const toCreateEmails = emails.map(email => ({
+		id: uuid(),
+		groupId,
+		recipientMemberId,
+		subjectMemberId,
+		type,
+	}))
+
+	await Email.knex().insert(toCreateEmails).into('email')
+
+	toCreateEmails.forEach(email => emit({ type: 'email-queued', data: { email } }))
+}
+
 Email.queue = async ({ groupId, recipientMemberId, subjectMemberId, type }, { emit }) => {
 	const id = uuid()
 

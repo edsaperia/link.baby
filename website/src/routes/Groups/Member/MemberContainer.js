@@ -44,6 +44,7 @@ const updateMember = gql`
 			imageUrl
 			emailAddress
 			groupId
+			optedIn
 		}
 	}
 `
@@ -67,6 +68,7 @@ const getActor = gql`
 				imageUrl
 				emailAddress
 				groupId
+				optedIn
 			}
 		}
 	}
@@ -122,7 +124,7 @@ const MemberContainer =
 					variables: { member },
 					update: (proxy, { data }) => {
 						const { member } = data
-						const { actor } = client.readQuery({ query: getActor })
+						const { actor } = proxy.readQuery({ query: getActor })
 						proxy.writeQuery({ query: getActor, variables: { id: d.id }, data: { actor: Object.assign({}, actor, { member }) } })
 					},
 				}),
