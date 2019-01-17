@@ -1,4 +1,6 @@
 export default () => `
+Hi $data.recipientName,
+
 $data.senderName invites you to stay connected with others in the $data.groupName group on link.baby
 
 A message from $data.senderName:

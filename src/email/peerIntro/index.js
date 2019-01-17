@@ -1,7 +1,7 @@
 import htmlTemplate from './html'
 import plaintextTemplate from './text'
 
-const subject = ({ data }) => `${data.groupName}: invitation to stay connected`
+const subject = ({ data }) => `Intro to ${data.subjectName}`
 
 const html = ({ data }) => {
 	let template = htmlTemplate()
@@ -21,7 +21,8 @@ const text = ({ data }) => {
 	return template
 }
 
-const sender = ({ data }) => `${data.senderName} via link.baby<hello@link.baby>`
+const sender = ({ data }) => `${data.groupOwnerName} via link.baby<hello@link.baby>`
+const replyTo = ({ data }) => data.subjectEmail
 
 export default {
 	subject,

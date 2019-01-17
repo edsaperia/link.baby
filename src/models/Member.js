@@ -97,7 +97,7 @@ Member.update = async ({ id, firstName, lastName, emailAddress, imageUrl, descri
 }
 
 Member.getUnlinkedMembers = async () => {
-	const [rows] = await Member.knex().select(knex.raw(`
+	const [rows] = await Member.knex().raw(`
 		select
 			m.id recipientMemberId, 
 			m2.id subjectMemberId, 
@@ -107,7 +107,7 @@ Member.getUnlinkedMembers = async () => {
 		where m.id != m2.id
 		and m.groupId = m2.groupId
 		and e.id is null
-	`))
+	`)
 
 	return rows
 }

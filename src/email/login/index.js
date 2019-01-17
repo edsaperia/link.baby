@@ -21,11 +21,8 @@ const text = ({ data }) => {
 	return template
 }
 
-const sender = () => null // system default
-
 export default {
 	subject,
 	html,
 	text,
-	sender,
 }

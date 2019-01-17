@@ -21,6 +21,8 @@ import mutations from './src/mutations'
 
 import Token from './src/models/Token'
 
+import dailyScheduled from './src/scheduled/daily'
+
 const resolvers = {
 	Query: queries,
 	Mutation: mutations,
@@ -59,6 +61,16 @@ const authMiddleware = (req, res, next) => {
 
 app.use('*', cors({ origin: '*' }))
 
+const emit = ({ auth }) => async ({ type, data }) => {
+	if (events[type]) {
+		await events[type](Object.assign({}, data, { auth }))
+			.then(console.log)
+			.catch(console.error)
+	} else {
+		console.error(`unhandled event ${type}`)
+	}
+}
+
 app.use('/graphql',
 	bodyParser.json(),
 	authMiddleware,
@@ -78,15 +90,7 @@ app.use('/graphql',
 
 			return ({
 				auth,
-				emit: async ({ type, data }) => {
-					if (events[type]) {
-						await events[type](Object.assign({}, data, { auth }))
-							.then(console.log)
-							.catch(console.error)
-					} else {
-						console.error(`unhandled event ${type}`)
-					}
-				},
+				emit: emit({ auth }),
 			})
 		},
 	})))
@@ -104,3 +108,5 @@ app.get('/prod-graphiql', graphiqlExpress({
 app.listen(PORT, () => {
 	console.log(`Apollo Server is now running on ${process.env.PUBLIC_GRAPHQL_URL}`)
 })
+
+// dailyScheduled({ emit: emit({}) }).then(console.log).catch(console.error)

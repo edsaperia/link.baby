@@ -2,6 +2,7 @@ import AWS from 'aws-sdk'
 
 import login from './login'
 import groupIntro from './groupIntro'
+import peerIntro from './peerIntro'
 
 const templates = {
 	login,
@@ -20,9 +21,8 @@ export const sendEmail = ({ recipient, data, type }) => {
 	const subject = templates[type].subject({ data })
 	const text = templates[type].text({ data })
 	const html = templates[type].html({ data })
-	const sender = templates[type].sender({ data }) || 'link.baby <hello@link.baby>'
-
-	console.log(sender)
+	const sender = templates[type].sender ? templates[type].sender({ data }) : 'link.baby <hello@link.baby>'
+	const replyTo = templates[type].replyTo ? templates[type].replyTo({ data }) : null
 
 	const params = {
 		Source: sender,
@@ -47,6 +47,10 @@ export const sendEmail = ({ recipient, data, type }) => {
 				},
 			},
 		},
+	}
+
+	if (replyTo) {
+		params.ReplyToAddresses = [replyTo]
 	}
 
 	return new Promise((resolve, reject) => {

@@ -27,10 +27,25 @@ const emailQueued = async ({ email: eventEmail }) => {
 	if (email.type === 'group-intro') {
 		data = {
 			senderName: `${sender.firstName} ${sender.lastName}`,
+			recipientName: `${member.firstName} ${member.lastName}`,
 			groupName: group.title,
 			groupDescription: group.description,
 			accessToken,
 			introEmailContent: group.introEmailContent,
+		}
+	}
+
+	if (email.type === 'peer-intro') {
+		const subjectMember = await Member.query().select('*').where('id', email.subjectMemberId).first()
+
+		data = {
+			recipientName: `${member.firstName} ${member.lastName}`,
+			subjectName: `${subjectMember.firstName} ${subjectMember.lastName}`,
+			groupOwnerName: `${sender.firstName} ${sender.lastName}`,
+			subjectEmail: subjectMember.emailAddress,
+			subjectDescription: subjectMember.description,
+			groupName: group.title,
+			accessToken,
 		}
 	}
 

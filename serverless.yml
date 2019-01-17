@@ -94,7 +94,7 @@ functions:
           bucket: userUploads
           event: s3:ObjectCreated:*
   daily:
-    handler: daily
+    handler: daily.dailyHandler
     events:
       - schedule: cron(0 14 * * *)
 
