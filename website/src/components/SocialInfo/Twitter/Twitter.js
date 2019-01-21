@@ -38,8 +38,8 @@ class Twitter extends React.PureComponent {
 			token: oauth_token,
 			verifier: oauth_verifier,
 			secret: tokenSecret,
-		}).then(({ data: twitterAccount }) => {
-			this.props.onChange(twitterAccount)
+		}).then(({ data: { twitterGetAccountInfo } }) => {
+			this.props.onChange(twitterGetAccountInfo)
 		}).then(() => {
 			this.setState({ pending: false })
 		}).catch((e) => {

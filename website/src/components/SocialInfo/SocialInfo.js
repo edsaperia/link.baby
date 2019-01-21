@@ -8,7 +8,7 @@ class SocialInfo extends React.PureComponent {
 	}
 
 	onAccountChange(accountType, account) {
-		
+		this.props.onChange(account)
 	}
 
 	render() {

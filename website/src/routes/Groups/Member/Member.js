@@ -49,17 +49,28 @@ class Member extends React.PureComponent {
 			})
 	}
 
+	addSocial(account) {
+		const { firstName, lastName, description, imageUrl } = account
+		this.setState({
+			firstName,
+			lastName,
+			description,
+			imageUrl,
+		})
+	}
+
 	render() {
 		const { group } = this.props
-		const { redirect, firstName, lastName, description, optedIn } = this.state
+		const { redirect, firstName, lastName, description, imageUrl, optedIn } = this.state
 
 		return (
 			<div>
 				<h1>Tell us some more about yourself:</h1>
+				{imageUrl ? <img src={imageUrl} style={{ width: 'auto', height: 100 }} /> : null}
 				<input placeholder="firstName" value={firstName || ''} onChange={e => this.setState({ firstName: e.target.value })} />
 				<input placeholder="lastName" value={lastName || ''} onChange={e => this.setState({ lastName: e.target.value })} />
 				<textarea placeholder="add a short description about yourself" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
-				<SocialInfo />
+				<SocialInfo onChange={account => this.addSocial(account)} />
 				<p>Recieve a daily email with information of other people who are part of {group && group.title}</p>
 				<input
 					name="opted-in"

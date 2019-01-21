@@ -125,7 +125,7 @@ const MemberContainer =
 					update: (proxy, { data }) => {
 						const { member } = data
 						const { actor } = proxy.readQuery({ query: getActor })
-						proxy.writeQuery({ query: getActor, variables: { id: d.id }, data: { actor: Object.assign({}, actor, { member }) } })
+						proxy.writeQuery({ query: getActor, data: { actor: Object.assign({}, actor, { member }) } })
 					},
 				}),
 				loadingMemberUpdate: loading,
