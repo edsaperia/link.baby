@@ -4,6 +4,7 @@ import user from './user'
 import group from './group'
 import member from './member'
 import sendGroupIntroEmail from './sendGroupIntroEmail'
+import {twitterGetRequestToken, twitterGetAccountInfo} from './twitter'
 
 const mutations = {
 	login,
@@ -12,6 +13,8 @@ const mutations = {
 	group,
 	member,
 	sendGroupIntroEmail,
+	twitterGetRequestToken,
+	twitterGetAccountInfo,
 }
 
 export default mutations

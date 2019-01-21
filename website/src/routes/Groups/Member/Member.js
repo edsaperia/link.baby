@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
+import SocialInfo from '../../../components/SocialInfo'
+
 class Member extends React.PureComponent {
 	constructor(props) {
 		super(props)
@@ -57,6 +59,7 @@ class Member extends React.PureComponent {
 				<input placeholder="firstName" value={firstName || ''} onChange={e => this.setState({ firstName: e.target.value })} />
 				<input placeholder="lastName" value={lastName || ''} onChange={e => this.setState({ lastName: e.target.value })} />
 				<textarea placeholder="add a short description about yourself" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
+				<SocialInfo />
 				<p>Recieve a daily email with information of other people who are part of {group && group.title}</p>
 				<input
 					name="opted-in"

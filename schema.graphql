@@ -65,6 +65,20 @@ input GroupInput {
 	emailAddresses: [String],
 }
 
+type TwitterRequestToken {
+	token: String,
+	secret: String
+}
+
+type TwitterAccount {
+	id: String,
+	username: String,
+	imageUrl: String,
+	firstName: String,
+	lastName: String,
+	description: String,
+}
+
 type Mutation {
 	login(emailAddress: String) : Status
 	logout(accessToken: String) : Status
@@ -72,6 +86,9 @@ type Mutation {
 	user(user: UserInput): User # User requires id
 	member(member: MemberInput) : Member
 	sendGroupIntroEmail(groupId: ID) : Group
+
+	twitterGetRequestToken(callbackUrl: String) : TwitterRequestToken
+	twitterGetAccountInfo(token: String, secret: String, verifier: String): TwitterAccount
 }
 
 type Query {
