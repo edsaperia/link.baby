@@ -26,21 +26,22 @@ class Member extends React.PureComponent {
 	}
 
 	populateFromProps() {
-		const { member: { firstName, lastName, description, optedIn } } = this.props
+		const { member: { firstName, lastName, description, optedIn, imageUrl } } = this.props
 
 		this.setState({
 			firstName,
 			lastName,
 			description,
 			optedIn,
+			imageUrl,
 		})
 	}
 	
 	updateMember() {
-		const { firstName, lastName, description, optedIn } = this.state
+		const { firstName, lastName, description, imageUrl, optedIn } = this.state
 		const { member: { id } } = this.props
 
-		this.props.updateMember({ member: { id, firstName, lastName, description, optedIn } })
+		this.props.updateMember({ member: { id, firstName, lastName, description, imageUrl, optedIn } })
 			.then(() => {
 				this.setState({ redirect: true })
 			}).catch(e => {

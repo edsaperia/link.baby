@@ -39,7 +39,8 @@ class Twitter extends React.PureComponent {
 			verifier: oauth_verifier,
 			secret: tokenSecret,
 		}).then(({ data: { twitterGetAccountInfo } }) => {
-			this.props.onChange(twitterGetAccountInfo)
+			const { imageUrl } = twitterGetAccountInfo
+			this.props.onChange(Object.assign({}, twitterGetAccountInfo, { imageUrl: imageUrl.split('_normal').join('') }))
 		}).then(() => {
 			this.setState({ pending: false })
 		}).catch((e) => {
@@ -53,7 +54,7 @@ class Twitter extends React.PureComponent {
 
 		return (
 			<div>
-				<button disabled={!!pending} onClick={() => { this.login() }}>login with twitter</button>
+				<button disabled={!!pending} onClick={() => { this.login() }}>use twitter profile</button>
 			</div>
 		)
 	}

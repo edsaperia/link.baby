@@ -12,27 +12,15 @@ class Signup extends React.PureComponent {
 	
 	login() {
 		const emailAddress = this.emailInput.value
-		this.props.login({ emailAddress })
-			.then(() => {
-				this.setState({ redirect: true })
-			}).catch(e => {
-				this.setState({ error: true })
-				console.error(e)
-			})
-	}
-
-	renderLogin() {
-		return (
-			<form onSubmit={(e) => {
-				e.preventDefault()
-				this.login()
-				return false
-			}}>
-				<h1>Enter your email:</h1>
-				<input placeholder="email" type="email" name="email" ref={r => this.emailInput = r} />
-				<button onClick={() => this.login()}>Login</button>
-			</form>
-		)
+		if (!!emailAddress.trim()) {
+			this.props.login({ emailAddress })
+				.then(() => {
+					this.setState({ redirect: true })
+				}).catch(e => {
+					this.setState({ error: true })
+					console.error(e)
+				})
+		}
 	}
 
 	render() {
@@ -43,19 +31,18 @@ class Signup extends React.PureComponent {
 			return <Redirect to="/login/pending" />
 		}
 
-		if (!isSignup) {
-			return this.renderLogin()
-		}
-
 		return (
 			<form onSubmit={(e) => {
 				e.preventDefault()
 				this.login()
 				return false
-			}}>
-				<h1>To get started we just need your email:</h1>
-				<input placeholder="email" type="email" name="email" ref={r => this.emailInput = r} />
-				<button onClick={() => this.login()}>Sign up</button>
+			}} className="route-container">
+				<h3>We just need your email:</h3>
+				<div className="form-group">
+					<input placeholder="email address" className="form-control" type="email" id="emailInput" name="email" ref={r => this.emailInput = r} />
+					<small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<button type="submit" className="btn btn-primary" onClick={() => this.login()}>Next</button>
 			</form>
 		)
 	}
