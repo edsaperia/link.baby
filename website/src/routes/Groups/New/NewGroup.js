@@ -66,16 +66,28 @@ class NewGroup extends React.PureComponent {
 				e.preventDefault()
 				this.newGroup()
 				return false
-			}}>
-				<h1>Tell us about your group:</h1>
-				<p>name</p>
-				<input placeholder="name" value={title || ''} onChange={e => this.setState({ title: e.target.value })} />
-				<p>add a short description about the group</p>
-				<textarea placeholder="add a short description about the group" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
-				<p>add email addresses of the attendees (one per line)</p>
-				<textarea placeholder="add email addresses of the attendees (one per line)" value={emailAddresses || ''} onChange={e => this.setState({ emailAddresses: e.target.value })} />
-				{emailAddresses ? <p>(found {emailAddresses.split('\n').filter(a=>!!a.trim()).length})</p> : <p />}
-				<button onClick={() => this.newGroup()}>Next: Write Intro Email</button>
+			}} className="route-container">
+				<div className="form-group">
+					<h1>Tell us about your group</h1>
+				</div>
+				<div className="form-group">
+					<label htmlFor="nameInput">Name</label>
+					<input className="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Your Full Name" value={title || ''} onChange={e => this.setState({ title: e.target.value })} />
+					<small id="nameHelp" className="form-text text-muted"></small>
+				</div>
+				<div className="form-group">
+					<label htmlFor="nameInput">Description</label>
+					<textarea className="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Your Full Name" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
+					<small id="nameHelp" className="form-text text-muted">add a short description about the group</small>
+				</div>
+				<div className="form-group">
+					<label>Add email addresses of the attendees (one per line)</label>
+					<textarea className="form-control" placeholder={`someone@gmail.com\nsomeone.else@gmail.com`} value={emailAddresses || ''} onChange={e => this.setState({ emailAddresses: e.target.value })} />
+					<small className="form-text text-muted">{emailAddresses ? `(found ${emailAddresses.split('\n').filter(a=>!!a.trim()).length})` : ''}&nbsp;</small>
+				</div>
+				<div className="form-group">
+					<button onClick={() => this.newGroup()} className="btn btn-primary">Next: Write Intro Email</button>
+				</div>
 			</form>
 		)
 	}

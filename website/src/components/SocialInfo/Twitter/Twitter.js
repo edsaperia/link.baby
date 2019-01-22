@@ -1,4 +1,5 @@
 import React from 'react'
+import { TwitterLoginButton } from 'react-social-login-buttons'
 
 class Twitter extends React.PureComponent {
 	constructor(props) {
@@ -54,7 +55,7 @@ class Twitter extends React.PureComponent {
 
 		return (
 			<div>
-				<button disabled={!!pending} onClick={() => { this.login() }}>use twitter profile</button>
+				<TwitterLoginButton size="45px" className="btn btn-blue" disabled={!!pending} onClick={() => { this.login() }}>Use Twitter Profile</TwitterLoginButton>
 			</div>
 		)
 	}

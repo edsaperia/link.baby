@@ -9,7 +9,7 @@ ensureAccessToken()
 
 ReactDOM.render(
 	<App />,
-	document.getElementById('app')
+	document.querySelectorAll('*[react-root]')[0]
 )
 
 module.hot.accept()

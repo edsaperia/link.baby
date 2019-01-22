@@ -6,7 +6,7 @@ const Home = () => (
 		<div className="logo" />
 		<h1 className="cover-heading">Link Baby</h1>
 		<p className="lead">Stay Connected™️</p>
-		<Link to="/signup" className="btn btn-lg btn-secondary">Get Started</Link>
+		<Link to="/signup" className="btn btn-lg btn-primary">Get Started</Link>
 	</div>
 )
 

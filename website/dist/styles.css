@@ -14,7 +14,7 @@ a.btn:hover {
  */
 html,
 body {
-	height: 100%;
+	min-height: 100%;
 }
  #app, #app > div {
 	min-height: 100%;
@@ -34,7 +34,7 @@ h1, h2, h3, a, button {
 	flex: 1;
 }
 
-body, #app, #app > div {
+#app, #app > div {
 	display: -ms-flexbox;
 	display: flex;
 }
@@ -95,7 +95,6 @@ body, #app, #app > div {
 }
 .cover .btn-lg {
 	padding: .75rem 1.25rem;
-	font-weight: 700;
 }
 
 .logo {
@@ -148,7 +147,7 @@ body, #app, #app > div {
 	color: rgba(255, 255, 255, .5);
 	background: #333;
 	padding: 15px;
-	padding-bottom: 0;
+	padding-bottom: 1px;
 	text-align: center;
 }
 .mastfoot a,
@@ -160,6 +159,23 @@ body, #app, #app > div {
 	text-align: left;
 }
 
+label, small {
+	text-align: left;
+	width: 100%;
+}
+
 .groups-container a {
 	font-family: 'ApercuRegular';
+}
+.btn-outline-secondary {
+	color: black;
+	font-family: 'ApercuRegular';
+}
+
+.btn-primary, .btn-secondary {
+	font-family: 'ApercuRegular';
+}
+
+.form-group {
+	margin-top: 1rem;
 }

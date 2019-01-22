@@ -49,6 +49,8 @@ class IntroEmail extends React.PureComponent {
 						alert("please add email addresses to your group first")
 					}
 				}
+			}).then(() => {
+
 			})
 			.catch((e) => {
 				console.error(e)
@@ -60,18 +62,24 @@ class IntroEmail extends React.PureComponent {
 		const { introEmailContent, success } = this.state
 
 		return (
-			<div>
-				<h3>{group && group.title}</h3>
-				<h1>Write the intro email here</h1>
-				<p>This will get sent to everyone in the group, with a link for them to fill in their profile.</p>
-				<textarea placeholder="" value={introEmailContent || ''} onChange={e => this.setState({ introEmailContent: e.target.value })} />
-				<div>
-					<h4>Preview</h4>
-					<div>{introEmailContent}</div>
+			<div style={{ minWidth: 700 }}>
+				<h3 className="text-left mb-3">{group && group.title}</h3>
+				<h1 className="text-left">Write the intro email here</h1>
+				<div className="mt-5 mb-3" style={{ display: 'flex', flexDirection: 'row', minHeight: 400 }}>
+					<div style={{ flex: 1 }}>
+						<label>This will get sent to everyone in the group, with a link for them to fill in their profile.</label>
+						<textarea style={{ minHeight: 350 }} className="form-control" placeholder="" value={introEmailContent || ''} onChange={e => this.setState({ introEmailContent: e.target.value })} />
+					</div>
+					<div className="ml-5" style={{ flex: 1, textAlign: 'left' }}>
+						<h4 className="mb-4">Preview</h4>
+						<div>{introEmailContent}</div>
+					</div>
 				</div>
-				<p>{success ? 'saved' : null}</p>
-				<button onClick={() => this.save()}>save draft</button>
-				<button onClick={() => this.save(true)}>save and send to {group ? group.members.length : null} people</button>
+				<div className="mt-3" style={{ textAlign: 'left' }}>
+					<p>{success ? 'saved' : null}</p>
+					<button className="btn btn-outline-secondary mr-2" onClick={() => this.save()}>save draft</button>
+					<button className="btn btn-primary" onClick={() => this.save(true)}>save and send to {group ? group.members.length : null} people</button>
+				</div>
 			</div>
 		)
 	}

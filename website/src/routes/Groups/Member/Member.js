@@ -65,20 +65,36 @@ class Member extends React.PureComponent {
 		const { redirect, firstName, lastName, description, imageUrl, optedIn } = this.state
 
 		return (
-			<div>
-				<h1>Tell us some more about yourself:</h1>
+			<div className="route-container">
+				<h2>Tell us more about yourself</h2>
 				{imageUrl ? <img src={imageUrl} style={{ width: 'auto', height: 100 }} /> : null}
-				<input placeholder="firstName" value={firstName || ''} onChange={e => this.setState({ firstName: e.target.value })} />
-				<input placeholder="lastName" value={lastName || ''} onChange={e => this.setState({ lastName: e.target.value })} />
-				<textarea placeholder="add a short description about yourself" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
 				<SocialInfo onChange={account => this.addSocial(account)} />
-				<p>Recieve a daily email with information of other people who are part of {group && group.title}</p>
-				<input
-					name="opted-in"
-					type="checkbox"
-					checked={optedIn}
-					onChange={e => this.setState({ optedIn: !!e.target.checked }) } />
-				<button onClick={() => this.updateMember()}>Save</button>
+				<div className="form-group">
+					<label>First Name:</label>
+					<input className="form-control" placeholder="First Name" value={firstName || ''} onChange={e => this.setState({ firstName: e.target.value })} />
+				</div>
+				<div className="form-group">
+					<label>Last Name:</label>
+					<input className="form-control" placeholder="Last Name" value={lastName || ''} onChange={e => this.setState({ lastName: e.target.value })} />
+				</div>
+				<div className="form-group">
+					<label>Bio:</label>
+					<textarea className="form-control" placeholder="Add a short description about yourself" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
+				</div>
+				<div className="form-group form-check">
+					<input
+						class="form-check-input"
+						name="opted-in"
+						type="checkbox"
+						checked={optedIn}
+						onChange={e => this.setState({ optedIn: !!e.target.checked }) }
+					/>
+					<label class="form-check-label">
+						Recieve a daily introduction email to other people who are part of "{group && group.title}"
+					</label>
+					
+				</div>
+				<button className="btn btn-primary" onClick={() => this.updateMember()}>Save Profile</button>
 			</div>
 		)
 	}

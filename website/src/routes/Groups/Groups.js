@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 
 const Group = ({ id, title, description, members }) => (
-	<div className="card" style={{ width: '100%', marginBottom: '2rem' }}>
+	<div className="card" style={{ flex: 1, marginBottom: '2rem' }}>
 		<div className="card-body">
 			<h5 className="card-title">{title}</h5>
 			<h6 className="card-subtitle mb-2 text-muted">{members.length} members</h6>
@@ -14,7 +14,7 @@ const Group = ({ id, title, description, members }) => (
 )
 
 const Groups = ({ loading, loadingGroups, groups }) => (
-	<div>
+	<div style={{ flex: 1 }}>
 		{(loading || loadingGroups) ? <h3>loading</h3> : null}
 		{!loadingGroups && groups ? <p>you have {groups.length} groups</p> : null}
 		{!loadingGroups && groups && groups.length === 0 ? <Redirect to="/groups/new" /> : null}
