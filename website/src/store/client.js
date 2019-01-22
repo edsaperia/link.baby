@@ -46,7 +46,7 @@ const link = ApolloLink.from([
 	})
 ])
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
 	link,
 	cache,
 })

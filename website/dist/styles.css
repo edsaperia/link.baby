@@ -54,6 +54,11 @@ h1, h2, h3, a, button {
 	margin-bottom: 0;
 }
 
+a.masthead-brand {
+	color: black;
+	text-decoration: none;
+}
+
 .nav-masthead .nav-link {
 	padding: .25rem 0;
 	font-weight: 700;
@@ -72,8 +77,8 @@ h1, h2, h3, a, button {
 }
 
 .nav-masthead .active {
-	color: #fff;
-	border-bottom-color: #fff;
+	/*color: #fff;*/
+	/*border-bottom-color: #fff;*/
 }
 
 @media (min-width: 48em) {

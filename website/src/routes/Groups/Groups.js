@@ -16,7 +16,7 @@ const Group = ({ id, title, description, members }) => (
 const Groups = ({ loading, loadingGroups, groups }) => (
 	<div style={{ flex: 1 }}>
 		{(loading || loadingGroups) ? <h3>loading</h3> : null}
-		{!loadingGroups && groups ? <p>you have {groups.length} groups</p> : null}
+		{!loadingGroups && groups ? <p>you run {groups.length} groups</p> : null}
 		{!loadingGroups && groups && groups.length === 0 ? <Redirect to="/groups/new" /> : null}
 		<div className="groups-container">
 			{groups && groups.map(group => <Group key={group.id} {...group} />)}
