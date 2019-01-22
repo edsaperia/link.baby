@@ -10,8 +10,8 @@ const Header = ({ accessToken, member, user, setAccessToken }) => (
 			</h3>
 			<nav className="nav nav-masthead justify-content-center">
 				<NavLink className="nav-link" to="/">Home</NavLink>
-				{user ? <NavLink className="nav-link" to="/groups">Groups</NavLink> : null}
-				{member ? <NavLink className="nav-link" to="/groups">Groups</NavLink> : null}
+				{user ? <NavLink className="nav-link" to="/groups">My Groups</NavLink> : null}
+				{member ? <NavLink className="nav-link" to="/login/callback">My Group</NavLink> : null}
 				{!accessToken ? <NavLink className="nav-link" to="/login">Login</NavLink> : <NavLink onClick={() => {
 					setAccessToken({ accessToken: null })
 					client.resetStore()

@@ -22,34 +22,32 @@ import Header from './components/Header'
 const App = () => (
 	<BackendProvider>
 		<Router>
-			<div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+			<div className="content cover-container d-block w-100 h-100 p-3 mx-auto text-center">
 				<Header />
-				<main role="main" className="inner cover">
+				<main role="main" className="inner cover content-inside">
 					<div id="app">
-						
-							<div>
-								<Route path="/" exact component={Home} />
+						<div>
+							<Route path="/" exact component={Home} />
 
-								<Route path="/signup" isSignup exact component={Signup} />
-								<Route path="/signup/profile" exact component={SignupProfile} />
+							<Route path="/signup" isSignup exact component={Signup} />
+							<Route path="/signup/profile" exact component={SignupProfile} />
 
-								<Route path="/login" exact component={Signup} />
-								<Route path="/login/pending" exact component={LoginPending} />
-								<Route path="/login/callback" exact component={LoginCallback} />
-								<Route path="/login/twitter" exact component={TwitterLogin} />
+							<Route path="/login" exact component={Signup} />
+							<Route path="/login/pending" exact component={LoginPending} />
+							<Route path="/login/callback" exact component={LoginCallback} />
+							<Route path="/login/twitter" exact component={TwitterLogin} />
 
-								<Route path="/groups" exact component={Groups} />
-								<Route path="/groups/new" exact component={NewGroup} />
-								<Route path="/groups/:id" exact component={NewGroup} />
-								<Route path="/groups/:id/intro-email" exact component={GroupIntroEmail} />
-								<Route path="/groups/:id/member" exact component={Member} />
-							</div>
-						
+							<Route path="/groups" exact component={Groups} />
+							<Route path="/groups/new" exact component={NewGroup} />
+							<Route path="/groups/:id" exact component={NewGroup} />
+							<Route path="/groups/:id/intro-email" exact component={GroupIntroEmail} />
+							<Route path="/groups/:id/member" exact component={Member} />
+						</div>
 					</div>
 				</main>
 			</div>
 		</Router>
-		<footer className="mastfoot mt-auto">
+		<footer className="mastfoot mt-auto footer">
 			<div className="inner">
 				<p>&copy; <a href="https://edsaperia.com">Ed Saperia</a> 2019 ∙ Created by <a href="https://joshbalfour.co.uk/">Josh Balfour</a> ∙ <a href="/privacy.html">Privacy</a> ∙ <a href="/terms.html">Terms of Use</a></p>
 			</div>

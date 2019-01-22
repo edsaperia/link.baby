@@ -7,16 +7,16 @@ const Group = ({ id, title, description, members }) => (
 			<h5 className="card-title">{title}</h5>
 			<h6 className="card-subtitle mb-2 text-muted">{members.length} members</h6>
 			<p className="card-text">{description}</p>
-			<Link to={`/groups/${id}`} className="card-link">edit group</Link>
-			<Link to={`/groups/${id}/intro-email`} className="card-link">edit intro email</Link>
+			<Link to={`/groups/${id}`} className="btn btn-outline-secondary">edit group</Link>
+			<Link to={`/groups/${id}/intro-email`} className="btn btn-outline-secondary ml-2">edit intro email</Link>
 		</div>
 	</div>
 )
 
 const Groups = ({ loading, loadingGroups, groups }) => (
 	<div style={{ flex: 1 }}>
-		{(loading || loadingGroups) ? <h3>loading</h3> : null}
-		{!loadingGroups && groups ? <p>you run {groups.length} groups</p> : null}
+		{(loading || loadingGroups) ? <h3>Loading</h3> : null}
+		{!loadingGroups && groups ? <p style={{ textAlign: 'left' }}>You run {groups.length} groups</p> : null}
 		{!loadingGroups && groups && groups.length === 0 ? <Redirect to="/groups/new" /> : null}
 		<div className="groups-container">
 			{groups && groups.map(group => <Group key={group.id} {...group} />)}

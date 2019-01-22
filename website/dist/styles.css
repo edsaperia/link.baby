@@ -172,7 +172,7 @@ label, small {
 .groups-container a {
 	font-family: 'ApercuRegular';
 }
-.btn-outline-secondary {
+a.btn-outline-secondary {
 	color: black;
 	font-family: 'ApercuRegular';
 }
@@ -183,4 +183,22 @@ label, small {
 
 .form-group {
 	margin-top: 1rem;
+}
+
+html, body {
+	height: 100%;
+}
+
+.home-section {
+	margin-top: 7.5rem;
+	padding-top: 7.5rem;
+	padding-bottom: 7.5rem;
+	min-height: 450px;
+	width: 100%;
+	border-top: 1px solid black;
+	align-items: center;
+}
+
+.border-none {
+	border: none;
 }
