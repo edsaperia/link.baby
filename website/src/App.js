@@ -15,7 +15,10 @@ import TwitterLogin from './routes/Login/TwitterLogin'
 import Groups from './routes/Groups'
 import NewGroup from './routes/Groups/New'
 import GroupIntroEmail from './routes/Groups/IntroEmail'
+import GroupSuccess from './routes/Groups/New/Success'
+
 import Member from './routes/Groups/Member'
+import MemberSuccess from './routes/Groups/Member/Success'
 
 import Header from './components/Header'
 
@@ -42,6 +45,8 @@ const App = () => (
 							<Route path="/groups/:id" exact component={NewGroup} />
 							<Route path="/groups/:id/intro-email" exact component={GroupIntroEmail} />
 							<Route path="/groups/:id/member" exact component={Member} />
+							<Route path="/groups/:id/member/success" exact component={MemberSuccess} />
+							<Route path="/groups/:id/success" exact component={GroupSuccess} />
 						</div>
 					</div>
 				</main>

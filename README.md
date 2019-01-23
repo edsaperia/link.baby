@@ -1,10 +1,7 @@
 link.baby
 
 todo:
-	- "you set a profile" success page
-	- "you created a group" success page
-
-	- login emails get sent twice
+	- [bug] login emails get sent twice
 	- login email theme
 
 	- member intro email theme

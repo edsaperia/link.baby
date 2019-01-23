@@ -50,7 +50,7 @@ class IntroEmail extends React.PureComponent {
 					}
 				}
 			}).then(() => {
-
+				this.setState({ redirectToSuccessGroupId: group.id })
 			})
 			.catch((e) => {
 				console.error(e)
@@ -59,7 +59,11 @@ class IntroEmail extends React.PureComponent {
 
 	render() {
 		const { group } = this.props
-		const { introEmailContent, success } = this.state
+		const { introEmailContent, success, redirectToSuccessGroupId } = this.state
+
+		if (redirectToSuccessGroupId) {
+			return <Redirect to={`/groups/${redirectToGroupId}/success`} />
+		}
 
 		return (
 			<div style={{ minWidth: 700 }}>

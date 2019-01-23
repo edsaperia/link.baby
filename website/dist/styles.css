@@ -134,7 +134,7 @@ a.masthead-brand {
 	margin: auto;
 }
 
-.email-logo {
+.email-logo, .success-logo, .emails-logo {
 	margin: auto;
 	width: 300px;
 	height: 300px;
@@ -143,6 +143,14 @@ a.masthead-brand {
 	background-size: contain;
 
 	margin-bottom: 3rem;
+}
+
+.success-logo {
+	background-image: url(/success.png);
+}
+
+.emails-logo {
+	background-image: url(/emails.png);
 }
 
 /*
