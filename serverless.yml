@@ -98,7 +98,7 @@ functions:
   daily:
     handler: daily.dailyHandler
     events:
-      - schedule: cron(0 14 * * *)
+      - schedule: cron(0 14 * * ? *)
 
 custom:
   siteName: link.baby

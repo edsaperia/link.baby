@@ -9,6 +9,11 @@
   request: groups-request-mapping-template.txt
   response: response-mapping-template.txt
 - dataSource: Lambda
+  field: users
+  type: Query
+  request: users-request-mapping-template.txt
+  response: response-mapping-template.txt
+- dataSource: Lambda
   field: login
   type: Mutation
   request: login-request-mapping-template.txt
@@ -29,12 +34,22 @@
   request: user-request-mapping-template.txt
   response: response-mapping-template.txt
 - dataSource: Lambda
-  field: memberOptIn
+  field: member
   type: Mutation
-  request: memberOptIn-request-mapping-template.txt
+  request: member-request-mapping-template.txt
   response: response-mapping-template.txt
 - dataSource: Lambda
-  field: memberOptOut
+  field: sendGroupIntroEmail
   type: Mutation
-  request: memberOptOut-request-mapping-template.txt
+  request: sendGroupIntroEmail-request-mapping-template.txt
+  response: response-mapping-template.txt
+- dataSource: Lambda
+  field: twitterGetRequestToken
+  type: Mutation
+  request: twitterGetRequestToken-request-mapping-template.txt
+  response: response-mapping-template.txt
+- dataSource: Lambda
+  field: twitterGetAccountInfo
+  type: Mutation
+  request: twitterGetAccountInfo-request-mapping-template.txt
   response: response-mapping-template.txt
