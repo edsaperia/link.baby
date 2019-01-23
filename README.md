@@ -1,8 +1,9 @@
 link.baby
 
 todo:
-	- [bug] login emails get sent twice
 	- login email theme
+
+	- [bug] login emails get sent twice
 
 	- member intro email theme
 

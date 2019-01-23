@@ -20,3 +20,5 @@ services:
       - FIREBASE_DATABASE_URL=https://linkbaby-5bdac.firebaseio.com
 
       - WEB_PUBLIC_ROOT=http://localhost:3788
+      - TWITTER_CONSUMER_KEY=1GXpdUnSjztMkNzn30gB6g
+      - TWITTER_CONSUMER_SECRET=0QamSLOejNIyB9DVWDXSwAjZIxcR6m6KerDkWObo
