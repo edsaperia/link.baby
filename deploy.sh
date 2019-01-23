@@ -46,6 +46,9 @@ export FIREBASE_PRIVATE_KEY
 export FIREBASE_DATABASE_URL
 export ANDROID_IAP_KEY
 
+export TWITTER_CONSUMER_KEY
+export TWITTER_CONSUMER_SECRET
+
 aws s3 --region $AWS_REGION cp s3://linkbaby-config/config.json config.json
 
 cd platform
@@ -84,6 +87,10 @@ export SUBNET_ID_2=`echo $output | jq .subnet_internal_ids.value | jq 'split(","
 echo "SUBNET_ID_1: $SUBNET_ID_1"
 echo "SUBNET_ID_2: $SUBNET_ID_2"
 
+cd website
+./build.sh
+cd ..
+
 docker run \
     -v `pwd`:/src \
     -w /src \
@@ -114,6 +121,8 @@ docker run \
     -e "FIREBASE_PRIVATE_KEY=$FIREBASE_PRIVATE_KEY" \
     -e FIREBASE_DATABASE_URL=$FIREBASE_DATABASE_URL \
     -e "ANDROID_IAP_KEY=$ANDROID_IAP_KEY" \
+    -e TWITTER_CONSUMER_KEY=$TWITTER_CONSUMER_KEY \
+    -e TWITTER_CONSUMER_SECRET=$TWITTER_CONSUMER_SECRET \
     mhart/alpine-node:10.11.0 npm run deploy-prod
 
 aws s3 --region $AWS_REGION cp config.json s3://linkbaby-config/config.json

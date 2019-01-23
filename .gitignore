@@ -32,3 +32,5 @@ node_modules
 mapping-templates/*
 .terraform
 \.webpack/
+
+website/dist/build/bundle\.js

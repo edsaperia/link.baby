@@ -18,6 +18,8 @@ provider:
     SLACK_WEBHOOK_URL: ${env:SLACK_WEBHOOK_URL}
     STAGE: ${self:provider.stage}
     AWS_ACCOUNT_NUMBER: ${env:ACC_ID}
+    TWITTER_CONSUMER_KEY: ${env:TWITTER_CONSUMER_KEY}
+    TWITTER_CONSUMER_SECRET: ${env:TWITTER_CONSUMER_SECRET}
 
   vpc:
     securityGroupIds:
