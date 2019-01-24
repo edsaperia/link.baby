@@ -1,21 +1,15 @@
 link.baby
 
 todo:
-	- login email theme
-
 	- [bug] login emails get sent twice
 
-	- member intro email theme
-
-	- deploy
+	- [bug] reply-to not set
 
 	- choose colors
 
 	- edit group after creation button should say "save" not "next:"
 
 	- product explainer on homepage
-
-	- privacy policy + terms
 
 notes:
 
