@@ -175,8 +175,8 @@ export default () => `
                 <td align="center" style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top">
                   <table cellpadding="0" cellspacing="0" class="btn-inner-table" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                     <tr>
-                      <td style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; background-color: #EF4089; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EF4089" align="center">
-                        <a href="$data.link" style="font-family: 'ApercuRegular'; box-sizing: border-box; line-height: 22px; text-decoration: none; background-color: black; border: solid 1px black; border-radius: 5px; cursor: pointer; color: white; font-size: 17px; font-weight: 700; margin: 0; padding: 12px 38px; text-transform: none; border-color: black; display: inline-block; font-weight: bold;">
+                      <td style="box-sizing: border-box; font-family: ApercuRegular, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; background-color: #EF4089; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EF4089" align="center">
+                        <a href="$data.link" style="font-family: 'ApercuRegular'; box-sizing: border-box; line-height: 22px; text-decoration: none; background-color: black; border: solid 1px black; border-radius: 5px; cursor: pointer; color: white; font-size: 17px; font-weight: 700; margin: 0; padding: 12px 38px; text-transform: none; border-color: black; display: inline-block;">
                           Log in to link.baby
                         </a>
                       </td>
@@ -185,7 +185,7 @@ export default () => `
                 </td>
               </tr>
             </table>
-            <p class="align-center" style="font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 500; margin: 0; text-align: center; font-size: 14px; color: black; margin-bottom: 0;">
+            <p class="align-center" style="font-family: ApercuRegular, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 500; margin: 0; text-align: center; font-size: 14px; color: black; margin-bottom: 0;">
               You can keep and reuse this email to return to link.baby
             </p>
 
@@ -197,7 +197,7 @@ export default () => `
 </table>
 </div>
 </td>
-<td style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
+<td style="box-sizing: border-box; font-family: ApercuRegular, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top"></td>
 </tr>
 </table>
 
