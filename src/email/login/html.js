@@ -167,7 +167,7 @@ export default () => `
           <td style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 
             <h1 class="align-center" style="font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 600; line-height: 32px; margin: auto; margin-bottom: 40px; font-size: 24px; text-transform: none; max-width: 400px; text-align: center; color: #000 !important;">
-              Tap the button below on your phone to log in to link.baby
+              Click the button below to log in to link.baby
             </h1>
 
             <table class="btn btn-primary" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; margin: auto; margin-bottom: 25px;" width="100%">

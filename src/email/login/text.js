@@ -1,7 +1,7 @@
 export default () => `(https://link.baby)
 
 **********************************************************
-Tap the button below on your phone to log in to link.baby
+Click the button to log in to link.baby
 **********************************************************
 
 Log in to link.baby ( $data.link )
