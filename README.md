@@ -1,9 +1,26 @@
 link.baby
 
 todo:
-	- edit group after creation button should say "save" not "next:"
+	- new group page is fucked
+	- groups page should link to new group page
+	- email list should be comma delimited, and/or whatever gmail does
+
+	- [ux bug] edit group after creation button should say "save" not "next:"
+
+	- [bug] shouldn't allow organiser to send intro email again
 
 	- product explainer on homepage
+
+	- tagline: "keep the conversation going"
+
+	- better copy everywhere
+
+	- organiser social link up
+
+	- add linkedin
+
+	- add facebook?
+
 
 	- choose colors
 
