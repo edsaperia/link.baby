@@ -1,13 +1,11 @@
 link.baby
 
 todo:
-	- [bug] login emails get sent twice
-
-	- choose colors
-
 	- edit group after creation button should say "save" not "next:"
 
 	- product explainer on homepage
+
+	- choose colors
 
 notes:
 
