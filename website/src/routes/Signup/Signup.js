@@ -42,7 +42,7 @@ class Signup extends React.PureComponent {
 					<input placeholder="email address" className="form-control" type="email" id="emailInput" name="email" ref={r => this.emailInput = r} />
 					<small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
 				</div>
-				<button type="submit" className="btn btn-primary" onClick={() => this.login()}>Next</button>
+				<button type="submit" className="btn btn-primary">Next</button>
 			</form>
 		)
 	}

@@ -3,8 +3,6 @@ link.baby
 todo:
 	- [bug] login emails get sent twice
 
-	- [bug] reply-to not set
-
 	- choose colors
 
 	- edit group after creation button should say "save" not "next:"

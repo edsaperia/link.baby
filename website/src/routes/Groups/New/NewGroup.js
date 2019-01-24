@@ -86,7 +86,7 @@ class NewGroup extends React.PureComponent {
 					<small className="form-text text-muted">{emailAddresses ? `(found ${emailAddresses.split('\n').filter(a=>!!a.trim()).length})` : ''}&nbsp;</small>
 				</div>
 				<div className="form-group">
-					<button onClick={() => this.newGroup()} className="btn btn-primary">Next: Write Intro Email</button>
+					<button className="btn btn-primary">Next: Write Intro Email</button>
 				</div>
 			</form>
 		)

@@ -177,10 +177,10 @@ export default () => `
             <br /><br />
             <table class="btn btn-primary" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; margin: auto;" width="100%">
               <tr>
-                <td align="center" style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top">
+                <td align="center" style="box-sizing: border-box; font-family: ApercuRegular, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;" valign="top">
                   <table cellpadding="0" cellspacing="0" class="btn-inner-table" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                     <tr>
-                      <td style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; background-color: #EF4089; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EF4089" align="center">
+                      <td style="box-sizing: border-box; font-family: ApercuRegular, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; background-color: #EF4089; border-radius: 5px; text-align: center;" valign="top" bgcolor="#EF4089" align="center">
                         <a href="${process.env.WEB_PUBLIC_ROOT}/login/callback?accessToken=$data.accessToken" style="font-family: 'ApercuRegular'; box-sizing: border-box; line-height: 22px; text-decoration: none; background-color: black; border: solid 1px black; border-radius: 5px; cursor: pointer; color: white; font-size: 17px; font-weight: 700; margin: 0; padding: 12px 38px; text-transform: none; border-color: black; display: inline-block; font-weight: bold;">
                          Get Started
                         </a>
@@ -201,7 +201,7 @@ export default () => `
 </tr>
 </table>
 
-            <p style="font-size: 11px; color: #333; text-align: center;">
+            <p style="font-size: 11px; color: #333; font-family:'ApercuRegular'; text-align: center;">
             You are recieving this email because $data.senderName added you to the "$data.groupName" group on link.baby.<br />
             You will not recieve any more emails from the "$data.groupName" group on link.baby unless you opt-in via the link above.
             </p>

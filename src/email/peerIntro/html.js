@@ -183,7 +183,7 @@ export default () => `
 </tr>
 </table>
 
-            <p style="font-size: 11px; color: #333; text-align: center;">
+            <p style="font-size: 11px; font-family:'ApercuRegular'; color: #333; text-align: center;">
             You are recieving this email because you opted to be introduced to people from the $data.groupName group on link.baby.<br/>
 If you don't want to recieve these anymore you can <a href="${process.env.WEB_PUBLIC_ROOT}/member/opt-out?accessToken=$data.accessToken">opt out here</a>.<br/>
             </p>

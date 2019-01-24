@@ -18,6 +18,7 @@ const login = async (parent, {
 	// }, context)
 
 	// return credentials
+	console.log('login', emailAddress)
 	try {
 		const { accessToken } = await User.login({ emailAddress }, context)
 		const link = `${publicRoot}/login/callback?accessToken=${accessToken}`

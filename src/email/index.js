@@ -14,6 +14,8 @@ export const sendEmail = ({ recipient, data, type }) => {
 	const ses = new AWS.SES()
 	const charset = 'UTF-8'
 
+	console.log(`sending ${type} email to ${recipient}`)
+
 	if (!templates[type]) {
 		throw new Error(`email template ${type} not found`)
 	}
@@ -22,7 +24,7 @@ export const sendEmail = ({ recipient, data, type }) => {
 	const text = templates[type].text({ data })
 	const html = templates[type].html({ data })
 	const sender = templates[type].sender ? templates[type].sender({ data }) : 'link.baby <hello@link.baby>'
-	const replyTo = templates[type].replyTo ? templates[type].replyTo({ data }) : null
+	const replyTo = templates[type].replyTo ? templates[type].replyTo({ data }) : 'no-reply@link.baby'
 
 	const params = {
 		Source: sender,
@@ -63,6 +65,7 @@ export const sendEmail = ({ recipient, data, type }) => {
 		})
 	})
 }
+
 
 
 export const asdf = () => {}
