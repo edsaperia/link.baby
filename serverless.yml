@@ -196,12 +196,8 @@ resources:
         BucketName: ${self:custom.siteName}
         WebsiteConfiguration:
           IndexDocument: index.html
-          RoutingRules:
-            -
-              RedirectRule:
-                ReplaceKeyPrefixWith: friend.html?
-              RoutingRuleCondition:
-                KeyPrefixEquals: friend/
+          ErrorDocument: index.html
+
     StaticSiteS3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
