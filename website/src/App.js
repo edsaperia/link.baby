@@ -41,7 +41,7 @@ const App = () => (
 							<Route path="/login/twitter" exact component={TwitterLogin} />
 
 							<Route path="/groups" exact component={Groups} />
-							<Route path="/groups/new" exact component={NewGroup} />
+							<Route path="/group/new" exact component={NewGroup} />
 							<Route path="/groups/:id" exact component={NewGroup} />
 							<Route path="/groups/:id/intro-email" exact component={GroupIntroEmail} />
 							<Route path="/groups/:id/member" exact component={Member} />

@@ -2,7 +2,9 @@ link.baby
 
 todo:
 	- new group page is fucked
+
 	- groups page should link to new group page
+
 	- email list should be comma delimited, and/or whatever gmail does
 
 	- [ux bug] edit group after creation button should say "save" not "next:"
@@ -21,8 +23,11 @@ todo:
 
 	- add facebook?
 
+	- https
 
 	- choose colors
+
+	- analytics
 
 notes:
 
