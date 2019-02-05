@@ -11,8 +11,6 @@ todo:
 
 	- https
 
-	- send intro to new group members
-
 	- choose colors
 
 	- analytics
