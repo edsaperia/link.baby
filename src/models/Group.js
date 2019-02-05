@@ -27,7 +27,7 @@ Group.get = async ({ id }) => {
 	return Object.assign({}, group, { members }, { ownerUser: Object.assign({}, ownerUser, { emailAddress: undefined }) })
 }
 
-Group.update = async ({ group }) => {
+Group.update = async ({ group }, context) => {
 	let id
 
 	const sanitizedGroup = Object.assign({}, group, { emailAddresses: undefined })
@@ -43,7 +43,7 @@ Group.update = async ({ group }) => {
 	const { emailAddresses } = group
 
 	if (emailAddresses) {
-		await Member.ensureExist({ emailAddresses, groupId: id })
+		await Member.ensureExist({ emailAddresses, groupId: id }, context)
 	}
 
 	return Group.get({ id })

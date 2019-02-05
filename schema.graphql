@@ -44,6 +44,7 @@ type Group {
 	description: String,
 	ownerUser: User,
 	introEmailContent: String,
+	introEmailSentAt: String,
 	members: [Member],
 }
 

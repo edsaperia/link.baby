@@ -15,6 +15,7 @@ const groupFields = `
 		description
 		imageUrl
 	},
+	introEmailSentAt
 	members {
 		id
 		firstName

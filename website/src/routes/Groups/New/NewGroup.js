@@ -21,6 +21,13 @@ class NewGroup extends React.PureComponent {
 		}
 	}
 
+	getEmails() {
+		const { emailAddresses = '' } = this.state
+		const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+
+		return (emailAddresses.match(reg) || []).filter(a=>!!a.trim())
+	}
+
 	populateFromProps() {
 		const { group: { title, description, members } } = this.props
 
@@ -36,7 +43,7 @@ class NewGroup extends React.PureComponent {
 		const group = {
 			title,
 			description,
-			emailAddresses: emailAddresses.split('\n'),
+			emailAddresses: this.getEmails(),
 		}
 
 		if (this.props.group) {
@@ -56,6 +63,10 @@ class NewGroup extends React.PureComponent {
 
 	render() {
 		const { title, description, emailAddresses, redirectToGroupId } = this.state
+		const existingGroupId = this.props.group && this.props.group.id
+
+		const newEmailAddressesCount = this.props.group ? (this.getEmails().length - this.props.group.members.length) : 0
+		const hasSentIntro = this.props.group && this.props.group.introEmailSentAt
 
 		if (redirectToGroupId) {
 			return <Redirect to={`/groups/${redirectToGroupId}/intro-email`} />
@@ -83,10 +94,13 @@ class NewGroup extends React.PureComponent {
 				<div className="form-group">
 					<label>Add email addresses of the attendees (one per line)</label>
 					<textarea className="form-control" placeholder={`someone@gmail.com\nsomeone.else@gmail.com`} value={emailAddresses || ''} onChange={e => this.setState({ emailAddresses: e.target.value })} />
-					<small className="form-text text-muted">{emailAddresses ? `(found ${emailAddresses.split('\n').filter(a=>!!a.trim()).length})` : ''}&nbsp;</small>
+					<small className="form-text text-muted">{emailAddresses ? `(found ${this.getEmails().length})` : ''}&nbsp;</small>
 				</div>
 				<div className="form-group">
-					<button className="btn btn-primary">Next: Write Intro Email</button>
+					<label className="muted">{(hasSentIntro && newEmailAddressesCount !== 0) ? `You added ${newEmailAddressesCount} people. They will automatically get the intro email when you hit save.` : ''}</label>
+				</div>
+				<div className="form-group">
+					<button className="btn btn-primary">{existingGroupId ? 'Save' : 'Next: Write Intro Email'}</button>
 				</div>
 			</form>
 		)

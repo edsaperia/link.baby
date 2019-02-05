@@ -6,7 +6,7 @@ const Home = () => (
 		<div className="home-section p-0 border-none">
 			<div className="logo" />
 			<h1 className="cover-heading">Link Baby</h1>
-			<p className="lead">Stay Connected™️</p>
+			<p className="lead">Keep the Conversation Going</p>
 			<Link to="/signup" className="btn btn-lg btn-primary">Get Started</Link>
 		</div>
 		<div className="home-section">

@@ -14,7 +14,7 @@ const updateGroup = async (parent, { group }, context) => {
 		}
 	}
 
-	const newGroup = await Group.update({ group: Object.assign({}, group, { ownerUserId: currentUserId }) })
+	const newGroup = await Group.update({ group: Object.assign({}, group, { ownerUserId: currentUserId }) }, context)
 
 	return newGroup
 }

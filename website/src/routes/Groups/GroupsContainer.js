@@ -22,6 +22,7 @@ const getMyGroups = gql`
 			title
 			description
 			introEmailContent
+			introEmailSentAt
 			ownerUser {
 				id
 				firstName

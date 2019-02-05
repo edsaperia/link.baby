@@ -92,7 +92,6 @@ class Member extends React.PureComponent {
 					<label class="form-check-label">
 						Recieve a daily introduction email to other people who are part of "{group && group.title}"
 					</label>
-					
 				</div>
 				<button className="btn btn-primary" onClick={() => this.updateMember()}>Save Profile</button>
 			</div>

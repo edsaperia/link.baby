@@ -48,6 +48,7 @@ export ANDROID_IAP_KEY
 
 export TWITTER_CONSUMER_KEY
 export TWITTER_CONSUMER_SECRET
+export WEB_PUBLIC_ROOT
 
 aws s3 --region $AWS_REGION cp s3://linkbaby-config/config.json config.json
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 
-const Group = ({ id, title, description, members }) => (
+const Group = ({ id, title, description, members, introEmailSentAt }) => (
 	<div className="card" style={{ flex: 1, marginBottom: '2rem' }}>
 		<div className="card-body">
 			<h5 className="card-title">{title}</h5>
 			<h6 className="card-subtitle mb-2 text-muted">{members.length} members</h6>
 			<p className="card-text">{description}</p>
 			<Link to={`/groups/${id}`} className="btn btn-outline-secondary">edit group</Link>
-			<Link to={`/groups/${id}/intro-email`} className="btn btn-outline-secondary ml-2">edit intro email</Link>
+			{!introEmailSentAt ? <Link to={`/groups/${id}/intro-email`} className="btn btn-outline-secondary ml-2">edit intro email</Link> : null}
 		</div>
 	</div>
 )

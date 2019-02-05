@@ -11,6 +11,7 @@ const Header = ({ accessToken, member, user, setAccessToken }) => (
 			<nav className="nav nav-masthead justify-content-center">
 				<NavLink className="nav-link" to="/">Home</NavLink>
 				{user ? <NavLink className="nav-link" to="/groups">My Groups</NavLink> : null}
+				{user ? <NavLink className="nav-link" to="/signup/profile">My Profile</NavLink> : null}
 				{member ? <NavLink className="nav-link" to="/login/callback">My Group</NavLink> : null}
 				{!accessToken ? <NavLink className="nav-link" to="/login">Login</NavLink> : <NavLink onClick={() => {
 					setAccessToken({ accessToken: null })

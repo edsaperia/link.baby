@@ -1,6 +1,7 @@
 import uuid from 'uuid/v4'
 import Model from './Model'
 import Token from './Token'
+import Email from './Email'
 
 class Member extends Model {
 	static get tableName() {
@@ -20,7 +21,7 @@ Member.getGroupMembers = async ({ groupId }) => {
 	return members.map(member => Object.assign({}, member, { optedIn: !!member.optedInOn && !member.optedOutOn }))
 }
 
-Member.ensureExist = async ({ emailAddresses, groupId }) => {
+Member.ensureExist = async ({ emailAddresses, groupId }, context) => {
 	const existing = await Member.query().select('emailAddress').whereIn('emailAddress', emailAddresses).where('groupId', groupId)
 	const existingEmailAddresses = existing.map(m => m.emailAddress)
 	const toCreateEmails = emailAddresses.filter(emailAddress => !existingEmailAddresses.includes(emailAddress))
@@ -33,6 +34,14 @@ Member.ensureExist = async ({ emailAddresses, groupId }) => {
 
 	if (toCreateMembers.length > 0) {
 		await Member.knex().insert(toCreateMembers).into('member')
+
+		toCreateMembers.forEach(member => {
+			Email.queue({
+				groupId,
+				recipientMemberId: member.id,
+				type: 'group-intro',
+			}, context)
+		})
 	}
 }
 
