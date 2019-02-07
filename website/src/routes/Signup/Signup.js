@@ -25,7 +25,7 @@ class Signup extends React.PureComponent {
 
 	render() {
 		const { redirect } = this.state
-		const { isSignup } = this.props
+		const { isSignup, loading } = this.props
 
 		if (redirect) {
 			return <Redirect to="/login/pending" />
@@ -42,7 +42,7 @@ class Signup extends React.PureComponent {
 					<input placeholder="email address" className="form-control" type="email" id="emailInput" name="email" ref={r => this.emailInput = r} />
 					<small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
 				</div>
-				<button type="submit" className="btn btn-primary">Next</button>
+				<button type="submit" className="btn btn-primary" disabled={loading}>Next</button>
 			</form>
 		)
 	}

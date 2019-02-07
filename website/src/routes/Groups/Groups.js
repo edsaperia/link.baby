@@ -1,6 +1,8 @@
 import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 
+import Loading from '../../components/Loading'
+
 const Group = ({ id, title, description, members, introEmailSentAt }) => (
 	<div className="card" style={{ flex: 1, marginBottom: '2rem' }}>
 		<div className="card-body">
@@ -17,7 +19,7 @@ const Groups = ({ loading, loadingGroups, groups }) => (
 	<div style={{ flex: 1 }}>
 		{!loadingGroups && groups && groups.length === 0 ? <Redirect to="/group/new" /> : null}
 		<h2 className="text-left">Your Groups</h2>
-		{(loading || loadingGroups) ? <h3>Loading</h3> : null}
+		{(loading || loadingGroups) ? <Loading /> : null}
 		<Link to="/group/new" className="btn btn-primary float-right" style={{ marginTop: '-2em' }}>New Group</Link>
 		{!loadingGroups && groups ? <p style={{ textAlign: 'left' }}>You run {groups.length} groups</p> : null}
 		<div className="groups-container">

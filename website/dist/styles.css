@@ -218,6 +218,10 @@ div[react-root] {
 	display: flex;
 }
 
+.content {
+	min-height: calc(100vh - 57px) !important;
+}
+
 .border-none {
 	border: none;
 }

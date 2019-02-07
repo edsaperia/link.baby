@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5, h6,
 a.masthead-brand, .nav-masthead .nav-link {
 	color: #FBFBFF;
 }
+
 .cover-heading, .lead {
 	color: #FBFBFF !important;
 }
@@ -62,8 +63,13 @@ a.masthead-brand, .nav-masthead .nav-link {
 .card, .form-control {
 	border-color: #00A7AF;
 }
+
 .btn-outline-secondary:hover {
+	border-color: #00A7AF;
+	color: #00A7AF;
+}
+.btn-outline-secondary {
 	background: #00A7AF;
-	color: #FBFBFF;
+	color: #FBFBFF !important;
 	border-color: #00A7AF;
 }

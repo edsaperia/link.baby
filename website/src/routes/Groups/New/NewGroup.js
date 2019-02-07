@@ -62,6 +62,7 @@ class NewGroup extends React.PureComponent {
 	}
 
 	render() {
+		const { loading } = this.props
 		const { title, description, emailAddresses, redirectToGroupId } = this.state
 		const existingGroupId = this.props.group && this.props.group.id
 
@@ -100,7 +101,7 @@ class NewGroup extends React.PureComponent {
 					<label className="muted">{(hasSentIntro && newEmailAddressesCount !== 0) ? `You added ${newEmailAddressesCount} people. They will automatically get the intro email when you hit save.` : ''}</label>
 				</div>
 				<div className="form-group">
-					<button className="btn btn-primary">{existingGroupId ? 'Save' : 'Next: Write Intro Email'}</button>
+					<button className="btn btn-primary" disabled={loading}>{existingGroupId ? 'Save' : 'Next: Write Intro Email'}</button>
 				</div>
 			</form>
 		)

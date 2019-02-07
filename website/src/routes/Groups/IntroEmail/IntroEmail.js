@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Loading from '../../../components/Loading'
+
 class IntroEmail extends React.PureComponent {
 
 	constructor(props) {
@@ -58,7 +60,7 @@ class IntroEmail extends React.PureComponent {
 	}
 
 	render() {
-		const { group } = this.props
+		const { group, loading } = this.props
 		const { introEmailContent, success, redirectToSuccessGroupId } = this.state
 
 		if (redirectToSuccessGroupId) {
@@ -69,6 +71,7 @@ class IntroEmail extends React.PureComponent {
 			<div style={{ minWidth: 700 }}>
 				<h3 className="text-left mb-3">{group && group.title}</h3>
 				<h1 className="text-left">Write the intro email here</h1>
+				{loading ? <Loading /> : null}
 				<div className="mt-5 mb-3" style={{ display: 'flex', flexDirection: 'row', minHeight: 400 }}>
 					<div style={{ flex: 1 }}>
 						<label>This will get sent to everyone in the group, with a link for them to fill in their profile.</label>

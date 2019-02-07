@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
 import SocialInfo from '../../../components/SocialInfo'
+import Loading from '../../../components/Loading'
 
 class Member extends React.PureComponent {
 	constructor(props) {
@@ -61,12 +62,14 @@ class Member extends React.PureComponent {
 	}
 
 	render() {
-		const { group } = this.props
+		const { group, loadingGroup, loadingMember, loadingMemberUpdate } = this.props
+		const loading = loadingGroup || loadingMember
 		const { redirect, firstName, lastName, description, imageUrl, optedIn } = this.state
 
 		return (
 			<div className="route-container">
 				<h2>Tell us more about yourself</h2>
+				{loading ? <Loading /> : null}
 				{imageUrl ? <img src={imageUrl} style={{ width: 'auto', height: 100 }} /> : null}
 				<SocialInfo onChange={account => this.addSocial(account)} />
 				<div className="form-group">
@@ -93,7 +96,7 @@ class Member extends React.PureComponent {
 						Recieve a daily introduction email to other people who are part of "{group && group.title}"
 					</label>
 				</div>
-				<button className="btn btn-primary" onClick={() => this.updateMember()}>Save Profile</button>
+				<button className="btn btn-primary" disabled={loadingMemberUpdate} onClick={() => this.updateMember()}>Save Profile</button>
 			</div>
 		)
 	}

@@ -58,6 +58,7 @@ class Signup extends React.PureComponent {
 
 	render() {
 		const { redirect, imageUrl, firstName, lastName, description } = this.state
+		const { loading } = this.props
 
 		if (redirect) {
 			return <Redirect to="/groups" />
@@ -81,7 +82,7 @@ class Signup extends React.PureComponent {
 					<label>Bio:</label>
 					<textarea className="form-control" placeholder="Add a short description about yourself" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
 				</div>
-				<button className="btn btn-primary" onClick={() => this.updateUser()}>Save Profile</button>
+				<button className="btn btn-primary" onClick={() => this.updateUser()} disabled={loading}>Save Profile</button>
 			</div>
 		)
 	}
