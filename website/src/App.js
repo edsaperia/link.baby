@@ -25,30 +25,26 @@ import Header from './components/Header'
 const App = () => (
 	<BackendProvider>
 		<Router>
-			<div className="content cover-container d-block w-100 h-100 p-3 mx-auto text-center">
+			<div className="content d-block w-100 h-100 mx-auto text-center">
 				<Header />
 				<main role="main" className="inner cover content-inside">
-					<div id="app">
-						<div>
-							<Route path="/" exact component={Home} />
+					<Route path="/" exact component={Home} />
 
-							<Route path="/signup" isSignup exact component={Signup} />
-							<Route path="/signup/profile" exact component={SignupProfile} />
+					<Route path="/signup" isSignup exact component={Signup} />
+					<Route path="/signup/profile" exact component={SignupProfile} />
 
-							<Route path="/login" exact component={Signup} />
-							<Route path="/login/pending" exact component={LoginPending} />
-							<Route path="/login/callback" exact component={LoginCallback} />
-							<Route path="/login/twitter" exact component={TwitterLogin} />
+					<Route path="/login" exact component={Signup} />
+					<Route path="/login/pending" exact component={LoginPending} />
+					<Route path="/login/callback" exact component={LoginCallback} />
+					<Route path="/login/twitter" exact component={TwitterLogin} />
 
-							<Route path="/groups" exact component={Groups} />
-							<Route path="/group/new" exact component={NewGroup} />
-							<Route path="/groups/:id" exact component={NewGroup} />
-							<Route path="/groups/:id/intro-email" exact component={GroupIntroEmail} />
-							<Route path="/groups/:id/member" exact component={Member} />
-							<Route path="/groups/:id/member/success" exact component={MemberSuccess} />
-							<Route path="/groups/:id/success" exact component={GroupSuccess} />
-						</div>
-					</div>
+					<Route path="/groups" exact component={Groups} />
+					<Route path="/group/new" exact component={NewGroup} />
+					<Route path="/groups/:id" exact component={NewGroup} />
+					<Route path="/groups/:id/intro-email" exact component={GroupIntroEmail} />
+					<Route path="/groups/:id/member" exact component={Member} />
+					<Route path="/groups/:id/member/success" exact component={MemberSuccess} />
+					<Route path="/groups/:id/success" exact component={GroupSuccess} />
 				</main>
 			</div>
 		</Router>

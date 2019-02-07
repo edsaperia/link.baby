@@ -1,0 +1,69 @@
+/*
+	orange: #FF820A
+	blue: #00A7AF
+	black: #0c050c
+	white: #FBFBFF
+	yellow: #FAEA01
+*/
+
+body {
+	background: #FBFBFF;
+	color: #0c050c !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	color: #0c050c !important;
+}
+
+.btn-primary {
+	background: #FF820A;
+    border-color: #FF820A;
+    color: #FBFBFF;
+}
+
+.btn-primary:hover {
+	background: #C96508;
+	border-color: #C96508;
+}
+
+.home-section:first-child {
+	background: #00A7AF;
+}
+
+.mastfoot {
+	background: #0c050c;
+	color: #FBFBFF;
+}
+
+a.masthead-brand, .nav-masthead .nav-link {
+	color: #FBFBFF;
+}
+.cover-heading, .lead {
+	color: #FBFBFF !important;
+}
+
+.masthead {
+	background: #00A7AF;
+}
+
+.nav-masthead .nav-link:hover {
+	border-bottom-color: rgba(255,255,255, 0.5);
+}
+
+.mastfoot {
+	background: #00A7AF;
+}
+
+.btn-outline-secondary {
+	border-color: #00A7AF;
+	color: #00A7AF;
+}
+.card, .form-control {
+	border-color: #00A7AF;
+}
+.btn-outline-secondary:hover {
+	background: #00A7AF;
+	color: #FBFBFF;
+	border-color: #00A7AF;
+}

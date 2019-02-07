@@ -4,7 +4,7 @@ import { client } from '../../store/client'
 
 const Header = ({ accessToken, member, user, setAccessToken }) => (
 	<header className="masthead">
-		<div className="inner">
+		<div className="inner clearfix p-3 d-absolute nav-container">
 			<h3 className="masthead-brand">
 				<Link className="masthead-brand" to="/">link.baby</Link>
 			</h3>

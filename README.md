@@ -5,13 +5,14 @@ todo:
 
 	- better copy everywhere
 
+	- choose colors
+
+
 	- add linkedin
 
 	- add facebook?
 
 	- https
-
-	- choose colors
 
 	- analytics
 

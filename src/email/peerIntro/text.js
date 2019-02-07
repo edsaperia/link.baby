@@ -1,6 +1,6 @@
 export default () => `
 Hi $data.recipientName,
-<br /><br />
+
 $data.subjectName from the $data.groupName group on link.baby
 
 name: $data.subjectName
