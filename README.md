@@ -7,6 +7,8 @@ todo:
 
 	- choose colors
 
+	- [bug] save draft button throws error
+
 
 	- add linkedin
 
