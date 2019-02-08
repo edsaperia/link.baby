@@ -5,11 +5,6 @@ todo:
 
 	- better copy everywhere
 
-	- choose colors
-
-	- [bug] save draft button throws error
-
-
 	- add linkedin
 
 	- add facebook?

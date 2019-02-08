@@ -95,10 +95,10 @@ class NewGroup extends React.PureComponent {
 				<div className="form-group">
 					<label>Add email addresses of the attendees (one per line)</label>
 					<textarea className="form-control" placeholder={`someone@gmail.com\nsomeone.else@gmail.com`} value={emailAddresses || ''} onChange={e => this.setState({ emailAddresses: e.target.value })} />
-					<small className="form-text text-muted">{emailAddresses ? `(found ${this.getEmails().length})` : ''}&nbsp;</small>
+					<small className="form-text text-muted">{this.getEmails().length > 0 ? `(found ${this.getEmails().length})` : ''}&nbsp;</small>
 				</div>
 				<div className="form-group">
-					<label className="muted">{(hasSentIntro && newEmailAddressesCount !== 0) ? `You added ${newEmailAddressesCount} people. They will automatically get the intro email when you hit save.` : ''}</label>
+					<label className="muted">{(hasSentIntro && newEmailAddressesCount > 0) ? `You added ${newEmailAddressesCount} extra people. They will automatically get the intro email when you hit save.` : ''}</label>
 				</div>
 				<div className="form-group">
 					<button className="btn btn-primary" disabled={loading}>{existingGroupId ? 'Save' : 'Next: Write Intro Email'}</button>

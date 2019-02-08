@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import Loading from '../../../components/Loading'
 
@@ -52,7 +52,9 @@ class IntroEmail extends React.PureComponent {
 					}
 				}
 			}).then(() => {
-				this.setState({ redirectToSuccessGroupId: group.id })
+				if (thenSend) {
+					this.setState({ redirectToSuccessGroupId: group.id })
+				}
 			})
 			.catch((e) => {
 				console.error(e)
@@ -64,7 +66,7 @@ class IntroEmail extends React.PureComponent {
 		const { introEmailContent, success, redirectToSuccessGroupId } = this.state
 
 		if (redirectToSuccessGroupId) {
-			return <Redirect to={`/groups/${redirectToGroupId}/success`} />
+			return <Redirect to={`/groups/${redirectToSuccessGroupId}/success`} />
 		}
 
 		return (
