@@ -1,13 +1,39 @@
 link.baby
 
 todo:
+		- populate WEB_PUBLIC_ROOT func env var
+
+		- make logged out UI look like logged in UI but with login prompts
+
+		- remove description field on group
+
+		- move change org user to just be name in group
+			get event org user full name on "Tell us about your group"
+
+		- make "preview" bit of intro email have frame and link baby text etc. (like actual email)
+
+		- by default add org user's email address to groups they're making
+
+		- on unsubscribe confirmation page
+			- "also remove my details from being sent to others" button
+
+		- attendee signup flow works like typeform
+			- custom image
+
+
+	- separate "add more people to group" page
+
 	- product explainer on homepage
 
 	- better copy everywhere
 
+	- use gravatar
+
 	- add linkedin
 
 	- add facebook?
+
+	- add custom image
 
 	- https
 
