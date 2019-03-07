@@ -124,6 +124,7 @@ docker run \
     -e "ANDROID_IAP_KEY=$ANDROID_IAP_KEY" \
     -e TWITTER_CONSUMER_KEY=$TWITTER_CONSUMER_KEY \
     -e TWITTER_CONSUMER_SECRET=$TWITTER_CONSUMER_SECRET \
+    -e WEB_PUBLIC_ROOT=$WEB_PUBLIC_ROOT \
     mhart/alpine-node:10.11.0 npm run deploy-prod
 
 aws s3 --region $AWS_REGION cp config.json s3://linkbaby-config/config.json
