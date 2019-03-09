@@ -29,20 +29,22 @@ class NewGroup extends React.PureComponent {
 	}
 
 	populateFromProps() {
-		const { group: { title, description, members } } = this.props
+		const { group: { title, description, members, organiserName } } = this.props
 
 		this.setState({
 			title,
 			description,
+			organiserName,
 			emailAddresses: members.map(member => member.emailAddress).join('\n'),
 		})
 	}
 
 	newGroup() {
-		const { title, description, emailAddresses } = this.state
+		const { title, description, emailAddresses, organiserName } = this.state
 		const group = {
 			title,
 			description,
+			organiserName,
 			emailAddresses: this.getEmails(),
 		}
 
@@ -63,7 +65,7 @@ class NewGroup extends React.PureComponent {
 
 	render() {
 		const { loading } = this.props
-		const { title, description, emailAddresses, redirectToGroupId } = this.state
+		const { title, description, emailAddresses, redirectToGroupId, organiserName } = this.state
 		const existingGroupId = this.props.group && this.props.group.id
 
 		const newEmailAddressesCount = this.props.group ? (this.getEmails().length - this.props.group.members.length) : 0
@@ -83,14 +85,14 @@ class NewGroup extends React.PureComponent {
 					<h1>Tell us about your group</h1>
 				</div>
 				<div className="form-group">
-					<label htmlFor="nameInput">Name</label>
-					<input className="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Your Full Name" value={title || ''} onChange={e => this.setState({ title: e.target.value })} />
+					<label htmlFor="nameInput">Group Name</label>
+					<input className="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Group Name" value={title || ''} onChange={e => this.setState({ title: e.target.value })} />
 					<small id="nameHelp" className="form-text text-muted"></small>
 				</div>
 				<div className="form-group">
-					<label htmlFor="nameInput">Description</label>
-					<textarea className="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Your Full Name" value={description || ''} onChange={e => this.setState({ description: e.target.value })} />
-					<small id="nameHelp" className="form-text text-muted">add a short description about the group</small>
+					<label htmlFor="orgnameInput">Your Name</label>
+					<input className="form-control" id="orgnameInput" aria-describedby="nameHelp" placeholder="Your Full Name" value={organiserName || ''} onChange={e => this.setState({ organiserName: e.target.value })} />
+					<small id="orgnameHelp" className="form-text text-muted">The name people in this group know you by</small>
 				</div>
 				<div className="form-group">
 					<label>Add email addresses of the attendees (one per line)</label>

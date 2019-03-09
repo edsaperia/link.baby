@@ -33,15 +33,18 @@ Member.ensureExist = async ({ emailAddresses, groupId }, context) => {
 	}))
 
 	if (toCreateMembers.length > 0) {
-		await Member.knex().insert(toCreateMembers).into('member')
+		const group = await Group.query().select('*').where('id', groupId).first()
+		if (group.introEmailSentAt) {
+			await Member.knex().insert(toCreateMembers).into('member')
 
-		toCreateMembers.forEach(member => {
-			Email.queue({
-				groupId,
-				recipientMemberId: member.id,
-				type: 'group-intro',
-			}, context)
-		})
+			toCreateMembers.forEach(member => {
+				Email.queue({
+					groupId,
+					recipientMemberId: member.id,
+					type: 'group-intro',
+				}, context)
+			})
+		}
 	}
 }
 

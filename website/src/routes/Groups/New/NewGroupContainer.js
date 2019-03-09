@@ -8,6 +8,7 @@ const groupFields = `
 	title,
 	description,
 	introEmailContent,
+	organiserName,
 	ownerUser {
 		id
 		firstName

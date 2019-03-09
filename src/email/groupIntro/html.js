@@ -164,7 +164,7 @@ export default () => `
         <tr>
           <td style="box-sizing: border-box; font-family: ApercuBold, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 
-            Hi $data.recipientName,
+            Hi,
             <br /><br />
             $data.senderName invites you to stay connected with others in the $data.groupName group on link.baby
             <br /><br />

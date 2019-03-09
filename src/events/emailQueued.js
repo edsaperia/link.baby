@@ -20,13 +20,12 @@ const emailQueued = async ({ email: eventEmail }) => {
 	const member = await Member.query().select('*').where('id', email.recipientMemberId).first()
 	const group = await Group.query().select('*').where('id', email.groupId).first()
 	const { accessToken } = await Member.generateToken({ id: email.recipientMemberId })
-	const sender = await User.query().select('*').where('id', Group.query().select('ownerUserId').where('id', email.groupId)).first()
 
 	let data = {}
 
 	if (email.type === 'group-intro') {
 		data = {
-			senderName: `${sender.firstName} ${sender.lastName}`,
+			senderName: group.organiserName,
 			recipientName: `${member.firstName} ${member.lastName}`,
 			groupName: group.title,
 			groupDescription: group.description,
@@ -41,7 +40,7 @@ const emailQueued = async ({ email: eventEmail }) => {
 		data = {
 			recipientName: `${member.firstName} ${member.lastName}`,
 			subjectName: `${subjectMember.firstName} ${subjectMember.lastName}`,
-			groupOwnerName: `${sender.firstName} ${sender.lastName}`,
+			groupOwnerName: group.organiserName,
 			subjectEmail: subjectMember.emailAddress,
 			subjectDescription: subjectMember.description,
 			groupName: group.title,

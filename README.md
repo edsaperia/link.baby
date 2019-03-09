@@ -1,18 +1,16 @@
 link.baby
 
 todo:
-		- populate WEB_PUBLIC_ROOT func env var
+		- move "change org user" to just be name in group
+			get event org user full name on "Tell us about your group", use that when sending emails
+
+		- by default add org user's email address to groups they're making
 
 		- make logged out UI look like logged in UI but with login prompts
 
-		- remove description field on group
-
-		- move change org user to just be name in group
-			get event org user full name on "Tell us about your group"
+		- make design not shitty
 
 		- make "preview" bit of intro email have frame and link baby text etc. (like actual email)
-
-		- by default add org user's email address to groups they're making
 
 		- on unsubscribe confirmation page
 			- "also remove my details from being sent to others" button

@@ -43,6 +43,7 @@ type Group {
 	title: String,
 	description: String,
 	ownerUser: User,
+	organiserName: String,
 	introEmailContent: String,
 	introEmailSentAt: String,
 	members: [Member],
@@ -62,6 +63,7 @@ input GroupInput {
 	id: ID,
 	title: String,
 	description: String,
+	organiserName: String,
 	introEmailContent: String,
 	emailAddresses: [String],
 }

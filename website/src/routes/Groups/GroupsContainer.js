@@ -23,6 +23,7 @@ const getMyGroups = gql`
 			description
 			introEmailContent
 			introEmailSentAt
+			organiserName
 			ownerUser {
 				id
 				firstName
