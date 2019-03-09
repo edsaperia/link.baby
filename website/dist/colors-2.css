@@ -1,0 +1,44 @@
+
+.home-section:first-child {
+	background: #667db6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	color: white;
+}
+
+.masthead {
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);	
+}
+
+.btn {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	border-radius: 5px;
+	background: #56ab2f;
+	min-width: 175px;
+}
+
+.btn-outline-secondary, a.btn-outline-secondary {
+	border-color: #56ab2f;
+	background: white;
+	color: #56ab2f;
+}
+
+.btn:hover {
+	background: #4d9b29;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mastfoot {
+	background: white;
+	color: black;
+}
+.mastfoot a, .mastfoot a:focus, .mastfoot a:hover {
+	color: black;
+}
+
+.card {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+}

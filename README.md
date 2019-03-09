@@ -6,9 +6,13 @@ todo:
 
 		- by default add org user's email address to groups they're making
 
-		- make logged out UI look like logged in UI but with login prompts
 
 		- make design not shitty
+
+
+		- don't let things happen twice
+
+		- make logged out UI look like logged in UI but with login prompts
 
 		- make "preview" bit of intro email have frame and link baby text etc. (like actual email)
 
