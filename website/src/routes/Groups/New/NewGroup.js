@@ -96,6 +96,7 @@ class NewGroup extends React.PureComponent {
 				</div>
 				<div className="form-group">
 					<label>Add email addresses of the attendees (one per line)</label>
+					<small className="form-text text-muted">you'll automatically be added to the group&nbsp;</small>
 					<textarea className="form-control" placeholder={`someone@gmail.com\nsomeone.else@gmail.com`} value={emailAddresses || ''} onChange={e => this.setState({ emailAddresses: e.target.value })} />
 					<small className="form-text text-muted">{this.getEmails().length > 0 ? `(found ${this.getEmails().length})` : ''}&nbsp;</small>
 				</div>

@@ -40,10 +40,18 @@ Group.update = async ({ group }, context) => {
 		await Group.query().insert(Object.assign({}, sanitizedGroup, { id }))
 	}
 
+	const ownerUser = await User.get({ id: group.ownerUserId })
+
 	const { emailAddresses } = group
 
 	if (emailAddresses) {
-		await Member.ensureExist({ emailAddresses, groupId: id }, context)
+		await Member.ensureExist({
+			emailAddresses: [
+				...emailAddresses,
+				ownerUser.emailAddress, // add creator to group
+			],
+			groupId: id,
+		}, context)
 	}
 
 	return Group.get({ id })
