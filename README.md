@@ -6,11 +6,10 @@ todo:
 
 		- by default add org user's email address to groups they're making
 
-
 		- make design not shitty
 
 
-		- don't let things happen twice
+		- don't let things happen twice/validation
 
 		- make logged out UI look like logged in UI but with login prompts
 
